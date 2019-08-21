@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Authentication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserGroups>
+    <UserGroup>
+      <name>admin</name>
+      <AuthenticationType>Windows_Domain</AuthenticationType>
+      <LDAPServer>adi</LDAPServer>
+      <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
+      <LDAPGroupName/>
+      <LDAPAccessUserName>adi</LDAPAccessUserName>
+      <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
+    </UserGroup>
+    <UserGroup>
+      <name>test</name>
+      <AuthenticationType>Windows_Domain</AuthenticationType>
+      <LDAPServer>adi</LDAPServer>
+      <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
+      <LDAPGroupName/>
+      <LDAPAccessUserName>adi</LDAPAccessUserName>
+      <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
+    </UserGroup>
+    <UserGroup>
+      <name>test</name>
+      <AuthenticationType>Windows_Domain</AuthenticationType>
+      <LDAPServer>adi</LDAPServer>
+      <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
+      <LDAPGroupName/>
+      <LDAPAccessUserName>adi</LDAPAccessUserName>
+      <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
+    </UserGroup>
+    <UserGroup>
+      <name>test2</name>
+      <AuthenticationType>Windows_Domain</AuthenticationType>
+      <LDAPServer>adi</LDAPServer>
+      <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
+      <LDAPGroupName/>
+      <LDAPAccessUserName>adi</LDAPAccessUserName>
+      <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
+    </UserGroup>
+  </UserGroups>
+</Authentication>
