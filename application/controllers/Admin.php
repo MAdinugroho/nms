@@ -72,7 +72,7 @@ class Admin extends CI_Controller
 
   public function test()
   {
-    Shell_Exec('powershell.exe Start-Process powershell -Verb runAs copy example.xml ../../../"');
+    Shell_Exec('powershell.exe copy example.xml ../../../"');
     notify('xml Berhasil di copy', 'Success', 'accountTacac');
   }
 }
