@@ -89,7 +89,7 @@ class Admin_model extends CI_Model
       'group' => $this->input->post('group'),
       'status' => 0,
     );
-    var_dump($data['username']);die;
+    
     $this->db->insert('account_tacac', $data);
     Shell_Exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['name'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
     sleep(4);
