@@ -7,7 +7,7 @@ class Admin_model extends CI_Model
     $this->load->database();
   }
 
-  public function _getKodeOtoAdmin($field, $table, $prefix, $length)
+  public function _getKodeOto($field, $table, $prefix, $length)
   {
       global $db;
       $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '{$prefix}[0-9]{{$length}}' ORDER BY $field DESC");
@@ -89,7 +89,14 @@ class Admin_model extends CI_Model
       'group' => $this->input->post('group'),
       'status' => 0,
     );
+    var_dump($data['username']);die;
     $this->db->insert('account_tacac', $data);
+    Shell_Exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['name'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
+    sleep(4);
+    Shell_Exec('powershell.exe Add-ADGroupMember Administrators '.$data['username'].'');
+    sleep(2);
+    Shell_Exec('powershell.exe Add-ADGroupMember '.$data['group'].' '.$data['username'].'');
+    sleep(2);
     notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'accountTacac');
   }
 
