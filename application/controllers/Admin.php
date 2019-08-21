@@ -53,9 +53,9 @@ class Admin extends CI_Controller
       redirect(base_url('accountTacac'));
      } else {
       if ($id == 'admin_tacacs') {
-        $data['gen'] = $this->admin_model->_getKodeOtoAdmin('name', 'account_tacac', 'admin_tacacs', 2);
+        $data['gen'] = $this->admin_model->_getKodeOto('name', 'account_tacac', 'admin_tacacs', 2);
       } elseif ($id == 'op_tacacs') {
-        $data['gen'] = $this->admin_model->getKodeOtoOp('name', 'account_tacac', 'operator', 2);
+        $data['gen'] = $this->admin_model->_getKodeOto('name', 'account_tacac', 'op_tacacs', 2);
       }
       $data['webconf'] = $this->admin_model->getDataRow('webconf', 'id', 1);
       $data['group'] = $id;
