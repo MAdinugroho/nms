@@ -85,18 +85,20 @@ class Admin_model extends CI_Model
     $data = array(
       'username' => $this->input->post('username'),
       'name' => $this->input->post('name'),
+      'email' => $this->input->post('email'),
       'password' => $this->input->post('password'),
+      'adname' => $this->input->post('adname'),
       'group' => $this->input->post('group'),
-      'status' => 0,
+      'status' => 1,
     );
     
     $this->db->insert('account_tacac', $data);
-    Shell_Exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['name'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
-    sleep(4);
-    Shell_Exec('powershell.exe Add-ADGroupMember Administrators '.$data['username'].'');
-    sleep(2);
-    Shell_Exec('powershell.exe Add-ADGroupMember '.$data['group'].' '.$data['username'].'');
-    sleep(2);
+    // Shell_Exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['name'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
+    // sleep(4);
+    // Shell_Exec('powershell.exe Add-ADGroupMember Administrators '.$data['username'].'');
+    // sleep(2);
+    // Shell_Exec('powershell.exe Add-ADGroupMember '.$data['group'].' '.$data['username'].'');
+    // sleep(2);
     notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'accountTacac');
   }
 
@@ -104,7 +106,7 @@ class Admin_model extends CI_Model
   {
     $query=$this->db->query("SELECT * FROM account_tacac ORDER BY id")->result();;
     // $data = array($query);
-    // var_dump($query);die;
+    //  var_dump($query);die;
 
     //Inisiasi Helper Adi//
     $this->load->helper('xml');
@@ -114,7 +116,7 @@ class Admin_model extends CI_Model
     xml_add_attribute($Authentication, 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
     xml_add_attribute($Authentication, 'xmlns:xsd', 'http://www.w3.org/2001/XMLSchema');
     $UserGroups= xml_add_child($Authentication, 'UserGroups', ''); 
-    foreach ($query as $item) : if ($item->group != 'admin') {continue;}
+    foreach ($query as $item) : if ($item->group != 'admin_tacacs') {continue;}
     $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
     xml_add_child($UserGroup, 'name', ""."$item->name"."");
     xml_add_child($UserGroup, 'AuthenticationType', 'Windows_Domain');
@@ -127,7 +129,7 @@ class Admin_model extends CI_Model
     xml_add_attribute($LDAPAccessUserPassword, 'DES', 'uTWkimSCBH1j8ZJB/5LPKA==');
     endforeach;
 
-    foreach ($query as $item) : if ($item->group != 'operator') {continue;}
+    foreach ($query as $item) : if ($item->group != 'op_tacacs') {continue;}
     $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
     xml_add_child($UserGroup, 'name', ""."$item->name"."");
     xml_add_child($UserGroup, 'AuthenticationType', 'Windows_Domain');
