@@ -11,7 +11,7 @@
  Target Server Version : 100129
  File Encoding         : 65001
 
- Date: 20/08/2019 14:40:43
+ Date: 21/08/2019 16:04:32
 */
 
 SET NAMES utf8mb4;
@@ -43,23 +43,19 @@ INSERT INTO `account` VALUES (3, 'admin1@gmail.com', 'admin1', '$2y$10$/BuFBAnHo
 -- ----------------------------
 DROP TABLE IF EXISTS `account_tacac`;
 CREATE TABLE `account_tacac`  (
-  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `password` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `name` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `role` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `group` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `status` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of account_tacac
 -- ----------------------------
-INSERT INTO `account_tacac` VALUES (1, 'admin', 'admin', 'admin', 'admin');
-INSERT INTO `account_tacac` VALUES (2, 'admin2', 'admin2', 'admin2', 'admin');
-INSERT INTO `account_tacac` VALUES (3, 'operator', 'operator', 'operator', 'operator');
-INSERT INTO `account_tacac` VALUES (4, 'admin3', 'adi', 'admin3', 'admin');
-INSERT INTO `account_tacac` VALUES (5, 'operator2', 'adi', 'operator2', 'operator');
-INSERT INTO `account_tacac` VALUES (6, 'admin3', 'adi', 'admin3', 'admin');
+INSERT INTO `account_tacac` VALUES (1, 'adi', 'adi', 'admin_tacacs', 'admin_tacacs', '0');
 
 -- ----------------------------
 -- Table structure for webconf
