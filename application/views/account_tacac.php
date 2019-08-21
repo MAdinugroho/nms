@@ -8,13 +8,13 @@
 		<div class="col-12">
 			<div class="hero bg-<?php echo $webconf->main_color; ?> text-white">
 				<div class="row">
-					<div class="col-8">
+					<div class="col-6">
 						<div class="hero-inner">
 							<h2>Welcome Back, Ujang!</h2>
 							<p class="lead">Berisi Informasi Akun Admin dan operator yang terdaftar di SIMAJAR</p>
 						</div>
 					</div>
-					<div class="col-4">
+					<div class="col-6">
 						<div class="row">
 							<div class="col-4">
 								<a href="#" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"
@@ -54,12 +54,12 @@
 								<div class="col-sm-6 col-lg-3">
 									<div class="card card-<?php echo $webconf->main_color; ?>">
 										<div class="card-header">
-											<h4 class="mb-1 fw-bold"><?php echo $item->name; ?></h4>
+											<h4 class="mb-1 fw-bold"><?php echo $item->adname; ?></h4>
 										</div>
 										<div class="card-body">
-											<p class="text-muted small mb-2"><?php echo $item->username; ?></p>
+											<h6 class="text-muted mb-2"><?php echo $item->username; ?></p>
 											<a href="<?php echo base_url('detailAccount/'.$item->id) ?>"
-												class="btn btn-sm btn-<?php echo $webconf->main_color; ?> btn-round">Detail
+												class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
 												Akun</a>
 										</div>
 									</div>
@@ -75,10 +75,13 @@
 								<div class="col-sm-6 col-lg-3"">
 									<div class=" card card-<?php echo $webconf->main_color; ?>">
 									<div class="card-header">
-										<h4 class="mb-1 fw-bold"><?php echo $item->name; ?></h4>
+										<h4 class="mb-1 fw-bold"><?php echo $item->adname; ?></h4>
 									</div>
 									<div class="card-body">
-										<p class="text-muted small mb-2"><?php echo $item->username; ?></p>
+										<h6 class="text-muted mb-2"><?php echo $item->username; ?></p>
+										<a href="<?php echo base_url('detailAccount/'.$item->id) ?>"
+												class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
+												Akun</a>
 									</div>
 								</div>
 							</div>
