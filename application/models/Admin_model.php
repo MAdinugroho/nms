@@ -5,6 +5,8 @@ class Admin_model extends CI_Model
   public function __construct()
   {
     $this->load->database();
+    ini_set('max_execution_time', 0); 
+    ini_set('memory_limit','2048M');
   }
 
   public function _getKodeOto($field, $table, $prefix, $length)
