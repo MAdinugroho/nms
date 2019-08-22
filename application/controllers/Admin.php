@@ -62,6 +62,14 @@ class Admin extends CI_Controller
     }
   }
 
+  public function detailAccountTacac($id)
+    {
+      $data['accounttacac'] = $this->admin_model->getDetailAccountTacac($id);
+      var_dump($data['accounttacac']);die;
+      $data['view_name'] = "]admin/detail_account_tacac";
+      $this->load->view('template', $data);
+    }
+
   public function exportXml()
   {
     $this->admin_model->exportXml();
@@ -70,7 +78,7 @@ class Admin extends CI_Controller
 
   public function test()
   {
-    Shell_Exec('powershell.exe copy example.xml ../../../"');
+    Shell_Exec('powershell.exe copy example.xml ../../"');
     notify('xml Berhasil di copy', 'Success', 'accountTacac');
   }
 }
