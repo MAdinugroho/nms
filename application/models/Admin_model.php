@@ -93,13 +93,23 @@ class Admin_model extends CI_Model
     );
     
     $this->db->insert('account_tacac', $data);
-    // Shell_Exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['name'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
-    // sleep(4);
-    // Shell_Exec('powershell.exe Add-ADGroupMember Administrators '.$data['username'].'');
-    // sleep(2);
-    // Shell_Exec('powershell.exe Add-ADGroupMember '.$data['group'].' '.$data['username'].'');
-    // sleep(2);
+    Shell_Exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['name'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
+    sleep(3);
+    Shell_Exec('powershell.exe Add-ADGroupMember Administrators '.$data['username'].'');
+    sleep(1);
+    Shell_Exec('powershell.exe Add-ADGroupMember '.$data['group'].' '.$data['username'].'');
+    sleep(1);
     notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'accountTacac');
+  }
+
+  public function getDetailAccountTacac($id)
+  {
+    $where = array(
+      'id' => $id
+     );
+
+     $query = $this->db->get_where('account_tacac',$where);
+     return $query->row();
   }
 
   public function exportXml()

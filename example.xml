@@ -2,38 +2,29 @@
 <Authentication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <UserGroups>
     <UserGroup>
-      <name>admin</name>
+      <name>adi</name>
       <AuthenticationType>Windows_Domain</AuthenticationType>
       <LDAPServer>adi</LDAPServer>
       <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
-      <LDAPGroupName/>
+      <LDAPGroupName>admin_tacacs</LDAPGroupName>
       <LDAPAccessUserName>adi</LDAPAccessUserName>
       <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
     </UserGroup>
     <UserGroup>
-      <name>test</name>
+      <name>adinugroho</name>
       <AuthenticationType>Windows_Domain</AuthenticationType>
       <LDAPServer>adi</LDAPServer>
       <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
-      <LDAPGroupName/>
+      <LDAPGroupName>admin_tacacs</LDAPGroupName>
       <LDAPAccessUserName>adi</LDAPAccessUserName>
       <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
     </UserGroup>
     <UserGroup>
-      <name>test</name>
+      <name>adi</name>
       <AuthenticationType>Windows_Domain</AuthenticationType>
       <LDAPServer>adi</LDAPServer>
       <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
-      <LDAPGroupName/>
-      <LDAPAccessUserName>adi</LDAPAccessUserName>
-      <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
-    </UserGroup>
-    <UserGroup>
-      <name>test2</name>
-      <AuthenticationType>Windows_Domain</AuthenticationType>
-      <LDAPServer>adi</LDAPServer>
-      <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
-      <LDAPGroupName/>
+      <LDAPGroupName>op_tacacs</LDAPGroupName>
       <LDAPAccessUserName>adi</LDAPAccessUserName>
       <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
     </UserGroup>
