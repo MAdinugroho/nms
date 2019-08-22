@@ -11,7 +11,7 @@
  Target Server Version : 100129
  File Encoding         : 65001
 
- Date: 21/08/2019 16:04:32
+ Date: 22/08/2019 12:00:16
 */
 
 SET NAMES utf8mb4;
@@ -45,17 +45,21 @@ DROP TABLE IF EXISTS `account_tacac`;
 CREATE TABLE `account_tacac`  (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `password` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `email` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `name` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `password` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `adname` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `group` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `status` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of account_tacac
 -- ----------------------------
-INSERT INTO `account_tacac` VALUES (1, 'adi', 'adi', 'admin_tacacs', 'admin_tacacs', '0');
+INSERT INTO `account_tacac` VALUES (1, 'adi', 'nugiecool04@gmail.com', 'adi', 'adi', 'admin_tacacs', 'admin_tacacs', '0');
+INSERT INTO `account_tacac` VALUES (2, 'adi', 'nugiecool04@gmail.com', 'adi', 'adi', 'op_tacacs', 'op_tacacs', '0');
+INSERT INTO `account_tacac` VALUES (3, 'adi', 'nugiecool04@gmail.com', 'adinugroho', 'adi', 'admin_tacacs02', 'admin_tacacs', '1');
 
 -- ----------------------------
 -- Table structure for webconf
@@ -80,6 +84,6 @@ CREATE TABLE `webconf`  (
 -- ----------------------------
 -- Records of webconf
 -- ----------------------------
-INSERT INTO `webconf` VALUES (1, 'primary', 'SIMAJAR', 'Jalan Sudarto', '081212583838', 'Sistem Informasi Manajemen Jaringan', 'Memanajemen Kebutuhan Jaringan Di UNDIP', 'smtp.office365.com', 'admin@sipmaft.com', 'teknik@2019', '587', 'TLS');
+INSERT INTO `webconf` VALUES (1, 'primary', 'NEMESIS', 'Jalan Sudarto', '081212583838', 'Network Management System', 'Memanajemen Kebutuhan Jaringan Di UNDIP', 'smtp.office365.com', 'admin@sipmaft.com', 'teknik@2019', '587', 'TLS');
 
 SET FOREIGN_KEY_CHECKS = 1;
