@@ -96,7 +96,8 @@ class Admin_model extends CI_Model
     
     $this->db->insert('account_tacac', $data);
 
-    Shell_exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['username'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
+    $output = Shell_exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['username'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
+    var_dump($output);die;
     sleep(3);
     Shell_exec('powershell.exe Add-ADGroupMember Administrators '.$data['username'].'');
     sleep(1);
