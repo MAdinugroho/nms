@@ -51,9 +51,9 @@ class Admin extends CI_Controller
       $this->admin_model->createAccountTacac();
      }else {
       if ($id == 'admin_tacacs') {
-        $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 2);
+        $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 1);
       } elseif ($id == 'op_tacacs') {
-        $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'op_tacacs', 2);
+        $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'op_tacacs', 1);
       }
       $data['webconf'] = $this->admin_model->getDataRow('webconf', 'id', 1);
       $data['group'] = $id;
