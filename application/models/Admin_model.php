@@ -12,7 +12,7 @@ class Admin_model extends CI_Model
   public function _getKodeOto($field, $table, $prefix, $length)
   {
       global $db;
-      $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '{$prefix}[0-100]{{$length}}' ORDER BY $field DESC");
+      $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '{$prefix}[0-9]{{$length}}' ORDER BY $field DESC");
 
       $var = $var->row_array()[$field];
 
