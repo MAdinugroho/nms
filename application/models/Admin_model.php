@@ -105,16 +105,6 @@ class Admin_model extends CI_Model
     notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'accountTacac');
   }
 
-  // public function sentToLdap()
-  // {
-  //   $ldap_con = ldap_connect("ldap.forumsys.com");
-
-  //   if(ldap_bind($ldap_con, $ldpa_dn, $ldap_password)){
-
-
-  //   }
-  // }
-
   public function getDetailAccountTacac($id)
   {
     $where = array(

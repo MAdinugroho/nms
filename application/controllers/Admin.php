@@ -49,7 +49,6 @@ class Admin extends CI_Controller
   {
     if ($this->input->post('createAccountTacac')) {
       $this->admin_model->createAccountTacac();
-      // $this->admin_model->sentToLdap();
      }else {
       if ($id == 'admin_tacacs') {
         $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 2);
