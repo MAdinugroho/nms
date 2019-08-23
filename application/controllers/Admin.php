@@ -49,6 +49,7 @@ class Admin extends CI_Controller
   {
     if ($this->input->post('createAccountTacac')) {
       $this->admin_model->createAccountTacac();
+      // $this->admin_model->sentToLdap();
      }else {
       if ($id == 'admin_tacacs') {
         $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 2);
@@ -80,5 +81,6 @@ class Admin extends CI_Controller
   {
     Shell_Exec('powershell.exe copy example.xml ../../"');
     notify('xml Berhasil di copy', 'Success', 'accountTacac');
+    // exec("C:\Users\Nugie\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell");
   }
 }
