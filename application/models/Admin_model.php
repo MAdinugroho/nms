@@ -80,9 +80,9 @@ class Admin_model extends CI_Model
   public function createAccountTacac()
   {
 
-    // $output = shell_exec('tacdes AdminTac01');
+    // $output = shell_exec('tacdes '.$this->input->post('password').'');
     // $trim = trim($output, "Encrypted AdminTac01 is ");
-    // var_dump($trim);die;
+    // var_dump($output);die;
 
     $data = array(
       'username' => $this->input->post('username'),
@@ -98,12 +98,11 @@ class Admin_model extends CI_Model
 
     Shell_exec('powershell.exe new-aduser -name "'.$data['username'].'" -userprincipalname "domain_user@bigfirm.biz" -samaccountname "'.$data['username'].'" -accountpassword (convertto-securestring "'.$data['password'].'" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
     // var_dump($output);die;
-    sleep(3);
+    sleep(2);
     Shell_exec('powershell.exe Add-ADGroupMember Administrators '.$data['username'].'');
     sleep(1);
     Shell_exec('powershell.exe Add-ADGroupMember '.$data['group'].' '.$data['username'].'');
     sleep(1);
-    notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'accountTacac');
   }
 
   public function getDetailAccountTacac($id)

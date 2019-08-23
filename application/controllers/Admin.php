@@ -47,9 +47,48 @@ class Admin extends CI_Controller
 
   public function createAccountTacac($id)
   {
+    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
+      'required' => 'Masukan Nama',
+      'is_unique' => 'Username sudah ada'
+    ]);
+
+    $this->form_validation->set_rules('name', 'Name', 'required|trim', [
+      'required' => 'Masukan Nama'
+    ]);
+
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[account_tacac.email]', [
+      'valid_email' => 'Email tidak valid',
+      'required' => 'Masukan Email',
+      'is_unique' => 'Email sudah ada'
+    ]);
+    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|hasCapital|password_check', [
+      'min_length' => 'password min 8 karakter',
+      'password_check' => 'Harus terdapat angka',
+      'hasCapital' => 'Harus terdapat 1 huruf besar',
+      'required' => 'masukan password'
+    ]);
+
+    if ($this->form_validation->run() == false) {
+      if ($id == 'admin_tacacs') {
+        $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 1);
+      } elseif ($id == 'op_tacacs') {
+        $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'op_tacacs', 1);
+      }
+      $data['webconf'] = $this->admin_model->getDataRow('webconf', 'id', 1);
+      $data['group'] = $id;
+      $data['view_name'] = 'create_account_tacac';
+      $this->load->view('template', $data);
+    } else {
+      $this->admin_model->createAccountTacac();
+      notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'accountTacac');
+    }
+  }
+
+  public function createAccountTacac2($id)
+  {
     if ($this->input->post('createAccountTacac')) {
       $this->admin_model->createAccountTacac();
-     }else {
+    } else {
       if ($id == 'admin_tacacs') {
         $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 1);
       } elseif ($id == 'op_tacacs') {
@@ -63,12 +102,13 @@ class Admin extends CI_Controller
   }
 
   public function detailAccountTacac($id)
-    {
-      $data['accounttacac'] = $this->admin_model->getDetailAccountTacac($id);
-      var_dump($data['accounttacac']);die;
-      $data['view_name'] = "]admin/detail_account_tacac";
-      $this->load->view('template', $data);
-    }
+  {
+    $data['accounttacac'] = $this->admin_model->getDetailAccountTacac($id);
+    var_dump($data['accounttacac']);
+    die;
+    $data['view_name'] = "]admin/detail_account_tacac";
+    $this->load->view('template', $data);
+  }
 
   public function exportXml()
   {

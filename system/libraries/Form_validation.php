@@ -1588,4 +1588,24 @@ class CI_Form_validation {
 		return $this;
 	}
 
+
+	function hasCapital($str) {
+        $found = false;
+        for ($i = 0; $i < strlen($str); $i++) {
+            if (ord($str[$i]) >= 65 && ord($str[$i]) <= 90) {
+                $found = true;
+                break;
+            }
+        }
+        return $found;
+} 
+
+public function password_check($str)
+{
+   if (preg_match('#[0-9]#', $str) && preg_match('#[a-zA-Z]#', $str)) {
+     return TRUE;
+   }
+   return FALSE;
+}
+
 }
