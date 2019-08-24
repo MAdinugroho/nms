@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Blank Page &mdash; Stisla</title>
+  <title>Network Management System</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/bootstrap/css/bootstrap.min.css">
@@ -14,7 +14,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/css/style.css">
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/css/components.css">
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="<?= base_url('assets'); ?>/stisla/dist/assets/js/sweetalert.min.js"></script>
 </head>
 
 
