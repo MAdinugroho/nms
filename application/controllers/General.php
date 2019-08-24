@@ -48,6 +48,7 @@ class General extends CI_Controller
                     'login' => true,
                     'id'  => $user['id'],
                     'username' => $user['username'],
+                    'password' => $user['password'],
                     'name'  => $user['name'],
                     'level' => $user['level']
                 ];
