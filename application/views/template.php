@@ -50,12 +50,14 @@
           </li>
         </ul>
 	  </nav>
-	  <?php
+    <?php
 		//var_dump($this->session->userdata['previlleges']);die;
-			$this->load->view('menu');
-
+		if (($this->session->userdata['level'] == 'admin')) {
+			$this->load->view('admin/menu');
+		} else if (($this->session->userdata['level'] == 'user')) {
+			$this->load->view('user/menu');
+		}
 		?>
-      
 
       <!-- Main Content -->
       <div class="main-content">

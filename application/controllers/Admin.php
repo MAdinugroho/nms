@@ -76,7 +76,7 @@ class Admin extends CI_Controller
       }
       $data['webconf'] = $this->admin_model->getDataRow('webconf', 'id', 1);
       $data['group'] = $id;
-      $data['view_name'] = 'create_account_tacac';
+      $data['view_name'] = 'admin/create_account_tacac';
       $this->load->view('template', $data);
     } else {
       $this->admin_model->createAccountTacac();

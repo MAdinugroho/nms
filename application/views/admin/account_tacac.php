@@ -35,18 +35,18 @@
 		<div class="col-12 col-sm-6 col-lg-12">
 			<div class="card">
 				<div class="card-body">
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<ul class="nav nav-pills" id="myTab" role="tablist">
 						<li class="nav-item">
-							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#admin" role="tab"
 								aria-controls="home" aria-selected="true">Admin</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#op" role="tab"
 								aria-controls="profile" aria-selected="false">Operator</a>
 						</li>
 					</ul>
 					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">
 							<div class="row">
 								<?php foreach ($account_tacac as $item) : if ($item->group != 'admin_tacacs') {
 										continue;
@@ -54,10 +54,10 @@
 								<div class="col-sm-6 col-lg-3">
 									<div class="card card-<?php echo $webconf->main_color; ?>">
 										<div class="card-header">
-											<h4 class="mb-1 fw-bold"><?php echo $item->adname; ?></h4>
+											<h4 class="mb-1 fw-bold"><?php echo $item->name; ?></h4>
 										</div>
 										<div class="card-body">
-											<h6 class="text-muted mb-2"><?php echo $item->username; ?></p>
+											<h6 class="text-muted mb-2">@<?php echo $item->username; ?></p>
 											<a href="<?php echo base_url('detailAccountTacac/'.$item->id) ?>"
 												class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
 												Akun</a>
@@ -67,7 +67,7 @@
 								<?php endforeach; ?>
 							</div>
 						</div>
-						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+						<div class="tab-pane fade" id="op" role="tabpanel" aria-labelledby="op-tab">
 							<div class="row">
 								<?php foreach ($account_tacac as $item) : if ($item->group != 'op_tacacs') {
 										continue;
@@ -75,10 +75,10 @@
 								<div class="col-sm-6 col-lg-3"">
 									<div class=" card card-<?php echo $webconf->main_color; ?>">
 									<div class="card-header">
-										<h4 class="mb-1 fw-bold"><?php echo $item->adname; ?></h4>
+										<h4 class="mb-1 fw-bold"><?php echo $item->name; ?></h4>
 									</div>
 									<div class="card-body">
-										<h6 class="text-muted mb-2"><?php echo $item->username; ?></p>
+										<h6 class="text-muted mb-2">@<?php echo $item->username; ?></p>
 										<a href="<?php echo base_url('detailAccountTacac/'.$item->id) ?>"
 												class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
 												Akun</a>

@@ -15,7 +15,7 @@
 			<li class="<?php if($view_name=='webconf'){echo 'active';}?>">
 				<a href="<?php echo base_url('webconf'); ?>" class="nav-link"><i class="fas fa-cogs"></i><span>Konfigurasi Sistem</span></a>
 			</li>
-			<li class="<?php if($view_name=='account_tacac'){echo 'active';}?>">
+			<li class="<?php if($view_name=='admin/account_tacac'){echo 'active';}?>">
 				<a href="<?php echo base_url('accountTacac'); ?>" class="nav-link"><i class="fas fa-users"></i><span>Akun Tacac</span></a>
 			</li>
 		</ul>

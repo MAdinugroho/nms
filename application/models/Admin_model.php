@@ -71,7 +71,7 @@ class Admin_model extends CI_Model
   {
     $data['account_tacac'] = $this->db->get('account_tacac')->result();
     // $data['account'] = $this->db->query('select * from account where username LIKE "%'.$keyword.'%" or fullname LIKE "%'.$keyword.'%" or email LIKE "%'.$keyword.'%"')->result();
-    $data['view_name'] = 'account_tacac';
+    $data['view_name'] = 'admin/account_tacac';
     $data['webconf'] = $this->getDataRow('webconf', 'id', 1);
     return $data;
   }
