@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/fontawesome/css/all.min.css">
 
   <!-- CSS Libraries -->
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/css/style.css">
@@ -87,8 +89,13 @@
 
   
   <!-- JS Libraies -->
+  <script src="<?= base_url('assets'); ?>/stisla/dist/assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
 
   <!-- Page Specific JS File -->
+  <script src="<?= base_url('assets'); ?>/stisla/dist/assets/js/page/components-user.js"></script>
+
+
+
   <script>
 		var msg = '<?= $this->session->flashdata('msg') ?>';
 		var type = '<?= $this->session->flashdata('type') ?>';
