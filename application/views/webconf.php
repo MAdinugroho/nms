@@ -62,7 +62,7 @@
 									</div>
 								</div>
 								<div class="card-footer">
-									<button type="submit" class="btn btn-info" name="updateInfo" value="updateInfo">Update Data</button>
+									<button type="submit" class="btn btn-lg btn-info" name="updateInfo" value="updateInfo">Update Data</button>
 								</div>
 							</form>
 						</div>
@@ -116,7 +116,7 @@
 									</div>
 								</div>
 								<div class="card-footer">
-									<button type="submit" class="btn btn-info" name="updateColor" value="updateColor">Update Data</button>
+									<button type="submit" class="btn btn-lg btn-info" name="updateColor" value="updateColor">Update Data</button>
 								</div>
 							</form>
 						</div>
