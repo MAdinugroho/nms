@@ -11,15 +11,6 @@
       <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
     </UserGroup>
     <UserGroup>
-      <name>adinugroho</name>
-      <AuthenticationType>Windows_Domain</AuthenticationType>
-      <LDAPServer>adi</LDAPServer>
-      <LDAPUserDirectorySubtree>Windows_Domain</LDAPUserDirectorySubtree>
-      <LDAPGroupName>admin_tacacs</LDAPGroupName>
-      <LDAPAccessUserName>adi</LDAPAccessUserName>
-      <LDAPAccessUserPassword ClearText="" DES="uTWkimSCBH1j8ZJB/5LPKA=="/>
-    </UserGroup>
-    <UserGroup>
       <name>adi</name>
       <AuthenticationType>Windows_Domain</AuthenticationType>
       <LDAPServer>adi</LDAPServer>
