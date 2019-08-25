@@ -16,16 +16,11 @@
 					</div>
 					<div class="col-6">
 						<div class="row">
-							<div class="col-6">
+							<div class="col-12 text-right">
 								<a href="#" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"
 									data-toggle="modal" data-target="#addAccountTacac"><i class="far fa-user"></i>
 									Tambah Akun</a>
-							</div>
-							<div class="col-4">
-								<a href="<?php echo base_url('exportXml'); ?>" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"><i class="far fa-user"></i>Update Active Directory</a>
-							</div>
-							<div class="col-4">
-								<!-- <a href="<?php echo base_url('test'); ?>" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"><i class="far fa-user"></i>Test</a> -->
+									<a href="<?php echo base_url('exportXml'); ?>" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"><i class="far fa-user"></i>Update Active Directory</a>
 							</div>
 						</div>
 					</div>
