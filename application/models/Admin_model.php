@@ -9,6 +9,7 @@ class Admin_model extends CI_Model
     ini_set('memory_limit', '2048M');
   }
 
+  //======CORE FUNCTION======//
   public function _getKodeOto($field, $table, $prefix, $length)
   {
     global $db;
@@ -31,6 +32,44 @@ class Admin_model extends CI_Model
     return $this->db->get_where('webconf', $where)->row();
   }
 
+
+  //======ACCOUNT FUNCTION======//
+  public function getAccount()
+  {
+    return $this->db->get('account')->result();
+  }
+
+  public function getDetailAccount($id)
+  {
+    $where = array(
+      'id' => $id
+    );
+
+    $query = $this->db->get_where('account', $where);
+    return $query->row();
+  }
+
+  public function createAccount()
+  {
+    date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
+        $now = date('Y-m-d');
+
+    $data = array(
+      'username' => $this->input->post('username'),
+      'name' => $this->input->post('name'),
+      'email' => $this->input->post('email'),
+      'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+      'level' => $this->input->post('level'),
+      'date_created' => $now,
+      'status' => 1,
+    );
+
+    $this->db->insert('account', $data);
+  }
+
+
+
+  //======ACCOUNT TACAC FUNCTION======//
   public function getAccountTacac()
   {
     return $this->db->get('account_tacac')->result();
@@ -138,26 +177,28 @@ class Admin_model extends CI_Model
     $dom->save("example.xml");
   }
 
+
+  //======WEB CONFIGURATION FUNCTION======//
   public function updateInfo()
   {
-    $this->db->where($where = array('id' => 1));
-    if ($this->db->update('webconf', $data = array('office_name' => $this->input->post('office_name'), 'slogan' => $this->input->post('slogan'), 'description' => $this->input->post('description'), 'office_address' => $this->input->post('office_address'), 'office_phone_number' => $this->input->post('office_phone_number')))) {
+    $this->db->where(array('id' => 1));
+    if ($this->db->update('webconf', array('office_name' => $this->input->post('office_name'), 'slogan' => $this->input->post('slogan'), 'description' => $this->input->post('description'), 'office_address' => $this->input->post('office_address'), 'office_phone_number' => $this->input->post('office_phone_number')))) {
       notify('Selamat Data Berhasil Diubah ', 'success', 'webconf');
     }
   }
 
   public function updateEmail()
   {
-    $this->db->where($where = array('id' => 1));
-    if ($this->db->update('webconf', $data = array('host' => $this->input->post('host'), 'crypto' => $this->input->post('crypto'), 'port' => $this->input->post('port'), 'email' => $this->input->post('email'), 'password' => $this->input->post('password')))) {
+    $this->db->where(array('id' => 1));
+    if ($this->db->update('webconf', array('host' => $this->input->post('host'), 'crypto' => $this->input->post('crypto'), 'port' => $this->input->post('port'), 'email' => $this->input->post('email'), 'password' => $this->input->post('password')))) {
       notify('Konfigurasi Email Berhasil Diubah ', 'success', 'webconf');
     }
   }
 
   public function updateColor()
   {
-    $this->db->where($where = array('id' => 1));
-    if ($this->db->update('webconf', $data = array('main_color' => $this->input->post('main_color')))) {
+    $this->db->where(array('id' => 1));
+    if ($this->db->update('webconf', array('main_color' => $this->input->post('main_color')))) {
       notify('Konfigurasi Warna Berhasil Diubah ', 'success', 'webconf');
     }
   }

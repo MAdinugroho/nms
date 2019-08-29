@@ -39,9 +39,56 @@ class Admin extends CI_Controller
     $this->load->view('template', $data);
   }
 
+  public function account()
+  {
+    if ($this->input->post('checkGroup')) {
+      redirect(base_url('createAccount/' . $this->input->post('group')));
+    } else {
+      $data['account'] = $this->admin_model->getAccount();
+      $data['view_name'] = 'admin/account';
+      $data['webconf'] = $this->admin_model->getWebconf();
+      $this->load->view('template', $data);
+    }
+  }
+
+  public function createAccount($id)
+  {
+    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
+      'required' => 'Masukan Nama',
+      'is_unique' => 'Username sudah ada'
+    ]);
+
+    $this->form_validation->set_rules('name', 'Name', 'required|trim', [
+      'required' => 'Masukan Nama'
+    ]);
+
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[account.email]', [
+      'valid_email' => 'Email tidak valid',
+      'required' => 'Masukan Email',
+      'is_unique' => 'Email sudah ada'
+    ]);
+    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|hasCapital|password_check', [
+      'min_length' => 'password min 8 karakter',
+      'password_check' => 'Harus terdapat angka',
+      'hasCapital' => 'Harus terdapat 1 huruf besar',
+      'required' => 'masukan password'
+    ]);
+
+    if ($this->form_validation->run() == false) {
+      $data['webconf'] = $this->admin_model->getWebconf();
+      $data['group'] = $id;
+      $data['view_name'] = 'admin/create_account';
+      $this->load->view('template', $data);
+    } else {
+      $this->admin_model->createAccount();
+      notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'account');
+    }
+  }
+
+
   public function accountTacac()
   {
-    if ($this->input->post('checkgroup')) {
+    if ($this->input->post('checkGroupTacac')) {
       redirect(base_url('createAccountTacac/' . $this->input->post('group')));
     } else {
       $data['account_tacac'] = $this->admin_model->getAccountTacac();
