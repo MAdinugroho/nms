@@ -67,6 +67,21 @@ class Admin_model extends CI_Model
     $this->db->insert('account', $data);
   }
 
+  public function deleteAccount()
+  {
+    $password = $this->input->post('password');
+    if (password_verify($password, $this->session->userdata['password'])) {
+      if ($this->input->post('status') == 0) {
+        notify('Super Akun Tidak Dapat Dihapus', 'error', 'account');
+      } else {
+        $this->db->delete('account', array('id' => $this->input->post('id')));
+        notify('Akun Berhasil Dihapus ', 'success', 'account');
+      }
+    } else {
+      notify('Password Yang Anda Masukan Tidak Cocok ', 'error', 'account');
+    }
+  }
+
 
 
   //======ACCOUNT TACAC FUNCTION======//

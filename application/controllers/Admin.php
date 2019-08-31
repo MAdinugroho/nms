@@ -85,6 +85,18 @@ class Admin extends CI_Controller
     }
   }
 
+  public function detailAccount($id)
+  {
+    if($this->input->post('deleteAccount')){$this->admin_model->deleteAccount();}
+    $data['account'] = $this->admin_model->getDetailAccount($id);
+    // var_dump($data['accounttacac']);
+    // die;
+    $data['webconf'] = $this->admin_model->getWebconf();
+    $data['view_name'] = "admin/detail_account";
+    $this->load->view('template', $data);
+  }
+
+
 
   public function accountTacac()
   {

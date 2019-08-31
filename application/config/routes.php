@@ -12,6 +12,7 @@ $route['dashboard'] = 'admin/dashboard';
 $route['webconf'] = 'admin/webconf';
 $route['account'] = 'admin/account';
 $route['createAccount/(:any)'] = 'admin/createAccount/$1';
+$route['detailAccount/(:any)'] = 'admin/detailAccount/$1';
 $route['accountTacac'] = 'admin/accountTacac';
 $route['createAccountTacac/(:any)'] = 'admin/createAccountTacac/$1';
 $route['detailAccountTacac/(:any)'] = 'admin/detailAccountTacac/$1';

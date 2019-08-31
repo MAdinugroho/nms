@@ -23,21 +23,21 @@
 									<div class="row">
 										<div class="form-group col-6">
 											<label>Username</label>
-											<input type="text" class="form-control" placeholder="Masukan Username" id="username" name="username" value="<?php echo $accounttacac->username; ?>" disabled>
+											<input type="text" class="form-control" placeholder="Masukan Username" id="username" name="username" value="<?php echo $account->username; ?>" disabled>
 										</div>
 										<div class="form-group col-6">
 											<label>Nama</label>
-											<input type="text" class="form-control" placeholder="Masukan Nama" id="name" name="name" value="<?php echo $accounttacac->name; ?>" disabled>
+											<input type="text" class="form-control" placeholder="Masukan Nama" id="name" name="name" value="<?php echo $account->name; ?>" disabled>
 										</div>
 									</div>
 									<div class="row">
 										<div class="form-group col-6">
 											<label>Email</label>
-											<input type="text" class="form-control" placeholder="Masukan Email" id="email" name="email" value="<?php echo $accounttacac->email; ?>" disabled>
+											<input type="text" class="form-control" placeholder="Masukan Email" id="email" name="email" value="<?php echo $account->email; ?>" disabled>
 										</div>
 										<div class="form-group col-6">
-											<label>Nama Active Directory</label>
-											<input type="text" class="form-control" name="adname" value="<?php echo $accounttacac->adname; ?>" disabled>
+											<label>Dibuat Pada</label>
+											<input type="text" class="form-control" name="datecreated" value="<?php echo $account->date_created; ?>" disabled>
 										</div>
 									</div>
 									<div class="row">
@@ -46,8 +46,8 @@
 											<input type="text" class="form-control" placeholder="Masukan password" name="password" disabled>
 										</div>
 										<div class="form-group col-6">
-											<label>Group</label>
-											<input type="text" class="form-control" name="group" value="<?php echo $accounttacac->group; ?>" disabled>
+											<label>Hak Akses</label>
+											<input type="text" class="form-control" name="level" value="<?php echo $account->level; ?>" disabled>
 										</div>
 									</div>
 								</div>
@@ -57,14 +57,14 @@
 						<div class="row">
 							<form method="post">
 							<div class="form-group col-12">
-							<p>Apakah anda yakin menghapus akun <?php echo $accounttacac->username; ?> ? untuk melanjutkan silahkan masukan password anda pada kolom dibawah ini</p>
+							<p>Apakah anda yakin menghapus akun <?php echo $account->username; ?> ? untuk melanjutkan silahkan masukan password anda pada kolom dibawah ini</p>
 								<input type="password" name="password" class="form-control" placeholder="masukan password anda">
-								<input type="text" name="id" value="<?php echo $accounttacac->id; ?>" hidden>
-								<input type="text" name="status" value="<?php echo $accounttacac->status; ?>" hidden>
+								<input type="text" name="id" value="<?php echo $account->id; ?>" hidden>
+								<input type="text" name="status" value="<?php echo $account->status; ?>" hidden>
 							</div>
 							<div class="card-footer col-6">
-                              <button type="submit" class="btn btn-danger" name="deleteAccountTacac" value="deleteAccount">Hapus Akun</button>
-                              <a href="<?php echo base_url('accountTacac'); ?>" class="btn btn-warning" >Kembali</a>
+                              <button type="submit" class="btn btn-danger" name="deleteAccount" value="deleteAccount">Hapus Akun</button>
+                              <a href="<?php echo base_url('account'); ?>" class="btn btn-warning" >Kembali</a>
 							</div>
 							</form>
 						</div>

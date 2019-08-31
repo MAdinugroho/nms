@@ -53,7 +53,7 @@
 										</div>
 										<div class="card-body">
 											<h6 class="text-muted mb-2">@<?php echo $item->username; ?></p>
-											<a href="<?php echo base_url('detailAccountTacac/'.$item->id) ?>"
+											<a href="<?php echo base_url('detailAccount/'.$item->id) ?>"
 												class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
 												Akun</a>
 										</div>
@@ -74,7 +74,7 @@
 									</div>
 									<div class="card-body">
 										<h6 class="text-muted mb-2">@<?php echo $item->username; ?></p>
-										<a href="<?php echo base_url('detailAccountTacac/'.$item->id) ?>"
+										<a href="<?php echo base_url('detailAccount/'.$item->id) ?>"
 												class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
 												Akun</a>
 									</div>
