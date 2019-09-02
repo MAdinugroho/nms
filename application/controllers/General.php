@@ -34,33 +34,93 @@ class General extends CI_Controller
   }
 
   private function loginValidation()
-    {
+  {
 
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $user = $this->general_model->login($username);
+    $username = $this->input->post('username');
+    $password = $this->input->post('password');
+    $user = $this->general_model->login($username);
 
 
-        if ($user) {
+    if ($user) {
 
-            if (password_verify($password, $user['password'])) {
-                $data = [
-                    'login' => true,
-                    'id'  => $user['id'],
-                    'username' => $user['username'],
-                    'password' => $user['password'],
-                    'name'  => $user['name'],
-                    'level' => $user['level']
-                ];
-                $this->session->set_userdata($data);
-                notify('Selamat Datang ', 'success', 'dashboard');
-            } else {
-                notify('Password salah ', 'error', 'login');
-            }
-        } else {
-            notify('User tidak terdaftar', 'error', 'login');
-        }
+      if (password_verify($password, $user['password'])) {
+        $data = [
+          'login' => true,
+          'id'  => $user['id'],
+          'username' => $user['username'],
+          'password' => $user['password'],
+          'name'  => $user['name'],
+          'level' => $user['level']
+        ];
+        $this->session->set_userdata($data);
+        notify('Selamat Datang ', 'success', 'dashboard');
+      } else {
+        notify('Password salah ', 'error', 'login');
+      }
+    } else {
+      notify('User tidak terdaftar', 'error', 'login');
     }
+  }
+
+  public function forgotPassword()
+  {
+    if ($this->input->post('resetPassword')) {$this->general_model->resetPassword();}
+    $this->load->view('forgotPassword', $this->general_model->cForgotPassword());
+  }
+
+
+  public function profile()
+  {
+    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
+      'required' => 'Masukan Nama',
+      'is_unique' => 'Username sudah ada'
+    ]);
+
+    $this->form_validation->set_rules('name', 'Name', 'required|trim', [
+      'required' => 'Masukan Nama'
+    ]);
+
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
+      'valid_email' => 'Email tidak valid',
+      'required' => 'Masukan Email'
+    ]);
+    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|hasCapital|password_check', [
+      'min_length' => 'password min 8 karakter',
+      'password_check' => 'Harus terdapat angka',
+      'hasCapital' => 'Harus terdapat 1 huruf besar',
+      'required' => 'masukan password'
+    ]);
+    $id = $this->session->userdata['id'];
+    if ($this->form_validation->run() == false) {
+      $data['webconf'] = $this->general_model->getWebconf();
+      $id = $this->session->userdata['id'];
+      $data['detail'] = $this->general_model->getDetailUser($id);
+      $data['view_name'] = "profile";
+      $this->load->view('template', $data);
+    } else {
+      $this->general_model->updateProfile($id);
+        $data['account'] = $this->general_model->getUpdatedProfile();
+        $data_session = array(
+          'login' => true,
+          'id' => $data['account']->id,
+          'username' => $data['account']->name,
+          'name' => $data['account']->name,
+          'email' => $data['account']->email,
+          'level' => $data['account']->level
+        );
+        $this->session->set_userdata($data_session);
+        notify('Selamat Akun Berhasil Diubah', 'success', 'profile');
+    }
+  }
+
+  public function editProfile()
+  {
+
+    $id = $this->session->userdata['id'];
+    $data['dtluser'] = $this->account_model->getDetailUser($id);
+    $data['view_name'] = "editprofile";
+    $this->load->view('temp', $data);
+  }
 
   public function logout()
   {

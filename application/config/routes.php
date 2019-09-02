@@ -6,6 +6,7 @@ $route['default_controller'] = 'general';
 //GENERAL AREA
 $route['login'] = 'general/login';
 $route['logout'] = 'general/logout';
+$route['profile'] = 'general/profile';
 
 //ADMIN AREA
 $route['dashboard'] = 'admin/dashboard';
