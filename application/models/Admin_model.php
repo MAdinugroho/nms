@@ -170,7 +170,7 @@ class Admin_model extends CI_Model
       xml_add_child($UserGroup, 'LDAPUserDirectorySubtree', 'cn=Users,DC=tacacs,DC=local');
       xml_add_child($UserGroup, 'LDAPGroupName', "" . "$item->group" . "");
       xml_add_child($UserGroup, 'LDAPAccessUserName', 'adi');
-      $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword', 'sadsadad');
+      $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword', '');
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
       xml_add_attribute($LDAPAccessUserPassword, 'DES', 'uTWkimSCBH1j8ZJB/5LPKA==');
     endforeach;
