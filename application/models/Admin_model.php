@@ -117,9 +117,11 @@ class Admin_model extends CI_Model
       'status' => 1,
     );
 
+    $password = $this->input->post('password');
+
     $this->db->insert('account_tacac', $data);
 
-    Shell_exec('powershell.exe new-aduser -name "' . $data['username'] . '" -userprincipalname "' . $data['email'] . '" -samaccountname "' . $data['username'] . '" -accountpassword (convertto-securestring "' . $data['password'] . '" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
+    Shell_exec('powershell.exe new-aduser -name "' . $data['username'] . '" -userprincipalname "' . $data['email'] . '" -samaccountname "' . $data['username'] . '" -accountpassword (convertto-securestring "' . $password . '" -asplaintext -force) -changepasswordatlogon $false  -enabled $true');
     // var_dump($output);die;
     sleep(2);
     Shell_exec('powershell.exe Add-ADGroupMember Administrators ' . $data['username'] . '');
