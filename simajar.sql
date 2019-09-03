@@ -11,7 +11,7 @@
  Target Server Version : 100129
  File Encoding         : 65001
 
- Date: 22/08/2019 12:00:16
+ Date: 03/09/2019 16:04:04
 */
 
 SET NAMES utf8mb4;
@@ -28,15 +28,19 @@ CREATE TABLE `account`  (
   `password` varchar(256) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `level` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `date_created` date NULL DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `status` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
-INSERT INTO `account` VALUES (1, 'adi', 'Adinugroho', '$2y$10$qQOOPBvIm2mzC2t7UaZSN.uUG44DMCElYgTjzY.t5YUS1NEVRvbSq', 'admin', '2019-07-21');
-INSERT INTO `account` VALUES (2, 'user@gmail.com', 'User', '$2y$10$E0wE1gwXOSAHUNYLXz3fu.q7OxH5z0qy4772GERzqOf0WX7tApI1a', 'user', '2019-08-04');
-INSERT INTO `account` VALUES (3, 'admin1@gmail.com', 'admin1', '$2y$10$/BuFBAnHoNhen0QPjjOUuuW1IpLyMgMPO9ZyoT2mmwrecl.DpNu7K', 'admin', '2019-07-13');
+INSERT INTO `account` VALUES (1, 'superadmin', 'SuperAdmin', '$2y$10$rnAZSlMdFcPj0dsvV9Ikbuw8mOLpWXtNWxpV5/P8yPbxsWQB624YW', 'admin', '2019-09-02', 'Adminict@undip.ac.id', '0');
+INSERT INTO `account` VALUES (2, 'user', 'User', '$2y$10$E0wE1gwXOSAHUNYLXz3fu.q7OxH5z0qy4772GERzqOf0WX7tApI1a', 'user', '2019-08-04', 'userict@undip.ac.id', '0');
+INSERT INTO `account` VALUES (3, 'admin1@gmail.com', 'admin1', '$2y$10$/BuFBAnHoNhen0QPjjOUuuW1IpLyMgMPO9ZyoT2mmwrecl.DpNu7K', 'admin', '2019-07-13', NULL, NULL);
+INSERT INTO `account` VALUES (8, 'adi2', 'adi nugroho`', '$2y$10$yZpXTRdnG9LJajGxm3/z8.98/pJK5hN31.mNKSNHUwBGCoObmKBZy', 'admin', '2019-08-31', 'nugiecool04@gmail.com', '1');
+INSERT INTO `account` VALUES (9, 'user2', 'user', '$2y$10$M1DJaTzojphIa42HSZ/05un.52oGaulMnT/y7sk6HXYrL47aphAx2', 'user', '2019-08-31', 'user@gmail.com', '1');
 
 -- ----------------------------
 -- Table structure for account_tacac
@@ -52,14 +56,13 @@ CREATE TABLE `account_tacac`  (
   `group` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `status` varchar(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of account_tacac
 -- ----------------------------
 INSERT INTO `account_tacac` VALUES (1, 'adi', 'nugiecool04@gmail.com', 'adi', 'adi', 'admin_tacacs', 'admin_tacacs', '0');
 INSERT INTO `account_tacac` VALUES (2, 'adi', 'nugiecool04@gmail.com', 'adi', 'adi', 'op_tacacs', 'op_tacacs', '0');
-INSERT INTO `account_tacac` VALUES (3, 'adi', 'nugiecool04@gmail.com', 'adinugroho', 'adi', 'admin_tacacs02', 'admin_tacacs', '1');
 
 -- ----------------------------
 -- Table structure for webconf
