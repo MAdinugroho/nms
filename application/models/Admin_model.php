@@ -204,7 +204,7 @@ class Admin_model extends CI_Model
     $string_value = $dom->saveXML();
     $dom->save("authentication.xml");
     sleep(2);
-    Shell_Exec('powershell.exe copy authentication.xml ../../ProgramData');
+    Shell_Exec('powershell.exe copy authentication.xml ../../../ProgramData');
   
   }
 
