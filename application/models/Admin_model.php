@@ -192,12 +192,12 @@ class Admin_model extends CI_Model
 
       $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
       xml_add_child($UserGroup, 'Name', 'Local System Administrators');
-      xml_add_child($UserGroup, 'AuthenticationType', 'localhost');
+      xml_add_child($UserGroup, 'AuthenticationType', 'Localhost');
       xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
 
       $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
       xml_add_child($UserGroup, 'Name', 'DEFAULT');
-      xml_add_child($UserGroup, 'AuthenticationType', 'localhost');
+      xml_add_child($UserGroup, 'AuthenticationType', 'Localhost');
       xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
     //  xml_print($dom, $return = false);
     $dom->formatOutput = true;
@@ -207,7 +207,7 @@ class Admin_model extends CI_Model
     Shell_Exec('powershell.exe copy authentication.xml ../../../ProgramData/TACACS.net/config/');
     sleep(1);
     Shell_Exec('powershell.exe net stop tacacs.net');
-    sleep(3);
+    sleep(4);
     Shell_Exec('powershell.exe net start tacacs.net');
     sleep(3);
   
