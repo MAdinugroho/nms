@@ -202,7 +202,7 @@ class Admin_model extends CI_Model
     //  xml_print($dom, $return = false);
     $dom->formatOutput = true;
     $string_value = $dom->saveXML();
-    $dom->save("example.xml");
+    $dom->save("authentication.xml");
 
   
   }
