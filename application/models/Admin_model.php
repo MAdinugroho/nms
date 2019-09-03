@@ -104,14 +104,14 @@ class Admin_model extends CI_Model
   {
 
     $output = shell_exec('tacdes '.$this->input->post('password').'');
-    $trim = trim($output, "Encrypted ".$this->input->post('password')." is ");
-    var_dump($trim);die;
+    $passwordtrim = trim($output, "Encrypted ".$this->input->post('password')." is ");
+    // var_dump($trim);die;
 
     $data = array(
       'username' => $this->input->post('username'),
       'name' => $this->input->post('name'),
       'email' => $this->input->post('email'),
-      'password' => $this->input->post('password'),
+      'password' => $passwordtrim,
       'adname' => $this->input->post('adname'),
       'group' => $this->input->post('group'),
       'status' => 1,
