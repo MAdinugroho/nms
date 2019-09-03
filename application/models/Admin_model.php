@@ -203,8 +203,13 @@ class Admin_model extends CI_Model
     $dom->formatOutput = true;
     $string_value = $dom->saveXML();
     $dom->save("authentication.xml");
-    sleep(2);
-    Shell_Exec('powershell.exe copy authentication.xml ../../../ProgramData');
+    sleep(1);
+    Shell_Exec('powershell.exe copy authentication.xml ../../../ProgramData/TACACS.net/config/');
+    sleep(1);
+    Shell_Exec('powershell.exe net stop tacacs.net');
+    sleep(3);
+    Shell_Exec('powershell.exe net start tacacs.net');
+    sleep(3);
   
   }
 
