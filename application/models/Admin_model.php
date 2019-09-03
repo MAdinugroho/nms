@@ -164,7 +164,7 @@ class Admin_model extends CI_Model
         continue;
       }
       $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
-      xml_add_child($UserGroup, 'name', "" . "$item->name" . "");
+      xml_add_child($UserGroup, 'Name', "" . "$item->name" . "");
       xml_add_child($UserGroup, 'AuthenticationType', 'Windows_Domain');
       xml_add_child($UserGroup, 'LDAPServer', 'adi');
       xml_add_child($UserGroup, 'LDAPUserDirectorySubtree', 'Windows_Domain');
@@ -179,7 +179,7 @@ class Admin_model extends CI_Model
         continue;
       }
       $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
-      xml_add_child($UserGroup, 'name', "" . "$item->name" . "");
+      xml_add_child($UserGroup, 'Name', "" . "$item->name" . "");
       xml_add_child($UserGroup, 'AuthenticationType', 'Windows_Domain');
       xml_add_child($UserGroup, 'LDAPServer', 'adi');
       xml_add_child($UserGroup, 'LDAPUserDirectorySubtree', 'Windows_Domain');
@@ -189,6 +189,16 @@ class Admin_model extends CI_Model
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
       xml_add_attribute($LDAPAccessUserPassword, 'DES', 'uTWkimSCBH1j8ZJB/5LPKA==');
     endforeach;
+
+      $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
+      xml_add_child($UserGroup, 'Name', 'Local System Administrators');
+      xml_add_child($UserGroup, 'AuthenticationType', 'localhost');
+      xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
+
+      $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
+      xml_add_child($UserGroup, 'Name', 'DEFAULT');
+      xml_add_child($UserGroup, 'AuthenticationType', 'localhost');
+      xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
     //  xml_print($dom, $return = false);
     $dom->formatOutput = true;
     $string_value = $dom->saveXML();
