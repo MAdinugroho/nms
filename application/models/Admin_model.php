@@ -164,7 +164,7 @@ class Admin_model extends CI_Model
         continue;
       }
       $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
-      xml_add_child($UserGroup, 'Name', "" . "$item->name" . "");
+      xml_add_child($UserGroup, 'Name', "" . "$item->adname" . "");
       xml_add_child($UserGroup, 'AuthenticationType', 'Windows_Domain');
       xml_add_child($UserGroup, 'LDAPServer', '10.42.12.180:389');
       xml_add_child($UserGroup, 'LDAPUserDirectorySubtree', 'cn=Users,DC=tacacs,DC=local');
@@ -179,7 +179,7 @@ class Admin_model extends CI_Model
         continue;
       }
       $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
-      xml_add_child($UserGroup, 'Name', "" . "$item->name" . "");
+      xml_add_child($UserGroup, 'Name', "" . "$item->adname" . "");
       xml_add_child($UserGroup, 'AuthenticationType', 'Windows_Domain');
       xml_add_child($UserGroup, 'LDAPServer', '10.42.12.180:389');
       xml_add_child($UserGroup, 'LDAPUserDirectorySubtree', 'cn=Users,DC=tacacs,DC=local');
