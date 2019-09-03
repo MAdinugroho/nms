@@ -173,6 +173,7 @@ class Admin_model extends CI_Model
       $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword');
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
       xml_add_attribute($LDAPAccessUserPassword, 'DES', 'uTWkimSCBH1j8ZJB/5LPKA==');
+      xml_add_child($UserGroup, 'Name2', '');
     endforeach;
 
     foreach ($query as $item) : if ($item->group != 'op_tacacs') {
