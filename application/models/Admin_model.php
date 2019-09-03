@@ -138,6 +138,8 @@ class Admin_model extends CI_Model
         notify('Super Akun Tidak Dapat Dihapus', 'error', 'accountTacac');
       } else {
         Shell_exec('powershell.exe Remove-ADUser '.$this->input->post('username').'');
+        sleep(2);
+        Shell_exec('powershell.exe y');
         $this->db->delete('account_tacac', array('id' => $this->input->post('id')));
         notify('Akun Berhasil Dihapus ', 'success', 'accountTacac');
       }
