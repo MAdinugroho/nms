@@ -139,7 +139,7 @@ class Admin_model extends CI_Model
       } else {
         $this->db->delete('account_tacac', array('id' => $this->input->post('id')));
         $test = Shell_exec('Remove-ADuser '.$this->input->post('username').'');
-        var_dump($this->input->post('username'));die;
+        var_dump($test);die;
         notify('Akun Berhasil Dihapus ', 'success', 'accountTacac');
       }
     } else {
