@@ -7,6 +7,17 @@ class General_model extends CI_Model
         $this->load->database();
 	}
   
+  public function getNumRow($table, $whereVar1, $whereVal1)
+  {
+    return $this->db->get_where($table, $where = array($whereVar1 => $whereVal1))->num_rows();
+  }
+
+  public function updateData($table, $whereVar, $whereVal, $setVar, $setVal)
+  {
+    $this->db->where($where = array($whereVar => $whereVal));
+    return $this->db->update($table, $data = array($setVar=> $setVal));
+  }
+
   public function getWebconf()
   {
     $where = array(
@@ -19,6 +30,19 @@ class General_model extends CI_Model
   {
       return $this->db->get_where('account', ['username' => $username])->row_array();
   }
+
+  public function resetPassword()
+  {
+    if ($this->getNumRow('account', 'email', $this->input->post('email'))>0) {
+      $newPassword = rand(100000, 999999);
+      $this->updateData('account', 'email', $this->input->post('email'), 'password', password_hash($newPassword, PASSWORD_BCRYPT));
+      // $this->sentEmail($this->input->post('email'), $this->getDataRow('account', 'email', $this->input->post('email'))->fullname, 'Reset Password', 'Password anda '.$newPassword);
+      notify('Password baru anda andalah ' . $newPassword . '. Harap mengganti password di menu profile', 'success', 'login');
+    } else {
+      notify('Data yang anda masukan salah.', 'error', 'forgotPassword');
+    }
+  }
+
 
     public function getDetailUser($id)
   {

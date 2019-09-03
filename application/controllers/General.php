@@ -64,8 +64,12 @@ class General extends CI_Controller
 
   public function forgotPassword()
   {
-    if ($this->input->post('resetPassword')) {$this->general_model->resetPassword();}
-    $this->load->view('forgotPassword', $this->general_model->cForgotPassword());
+    if ($this->input->post('resetPassword')) {
+      $this->general_model->resetPassword();
+    } else{
+    $data['webconf'] = $this->general_model->getWebconf();
+    $this->load->view('forgotpassword');
+  }
   }
 
 
