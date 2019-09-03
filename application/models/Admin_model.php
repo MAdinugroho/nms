@@ -137,9 +137,9 @@ class Admin_model extends CI_Model
       if ($this->input->post('status') == 0) {
         notify('Super Akun Tidak Dapat Dihapus', 'error', 'accountTacac');
       } else {
+        $test = Shell_exec('powershell.exe Remove-ADuser '.$this->input->post('username').'');
+        var_dump($test);die;
         $this->db->delete('account_tacac', array('id' => $this->input->post('id')));
-        $test = Shell_exec('Remove-ADuser '.$this->input->post('username').'');
-        var_dump($this->input->post('username'));die;
         notify('Akun Berhasil Dihapus ', 'success', 'accountTacac');
       }
     } else {
