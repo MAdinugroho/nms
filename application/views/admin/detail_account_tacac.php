@@ -60,6 +60,7 @@
 							<p>Apakah anda yakin menghapus akun <?php echo $accounttacac->username; ?> ? untuk melanjutkan silahkan masukan password anda pada kolom dibawah ini</p>
 								<input type="password" name="password" class="form-control" placeholder="masukan password anda">
 								<input type="text" name="id" value="<?php echo $accounttacac->id; ?>" hidden>
+								<input type="text" name="id" value="<?php echo $accounttacac->username; ?>" hidden>
 								<input type="text" name="status" value="<?php echo $accounttacac->status; ?>" hidden>
 							</div>
 							<div class="card-footer col-6">
