@@ -169,7 +169,7 @@ class Admin_model extends CI_Model
       xml_add_child($UserGroup, 'LDAPServer', '10.42.12.180:389');
       xml_add_child($UserGroup, 'LDAPUserDirectorySubtree', 'cn=Users,DC=tacacs,DC=local');
       xml_add_child($UserGroup, 'LDAPGroupName', "" . "$item->group" . "");
-      xml_add_child($UserGroup, 'LDAPAccessUserName', 'adi');
+      xml_add_child($UserGroup, 'LDAPAccessUserName', "" . "$item->username" . "");
       $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword', '');
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
       xml_add_attribute($LDAPAccessUserPassword, 'DES', "" . "$item->password" . "");
@@ -184,7 +184,7 @@ class Admin_model extends CI_Model
       xml_add_child($UserGroup, 'LDAPServer', '10.42.12.180:389');
       xml_add_child($UserGroup, 'LDAPUserDirectorySubtree', 'cn=Users,DC=tacacs,DC=local');
       xml_add_child($UserGroup, 'LDAPGroupName', "" . "$item->group" . "");
-      xml_add_child($UserGroup, 'LDAPAccessUserName', 'adi');
+      xml_add_child($UserGroup, 'LDAPAccessUserName', "" . "$item->username" . "");
       $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword');
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
       xml_add_attribute($LDAPAccessUserPassword, 'DES', "" . "$item->password" . "");
