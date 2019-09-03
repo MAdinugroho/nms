@@ -103,9 +103,9 @@ class Admin_model extends CI_Model
   public function createAccountTacac()
   {
 
-    // $output = shell_exec('tacdes '.$this->input->post('password').'');
-    // $trim = trim($output, "Encrypted AdminTac01 is ");
-    // var_dump($output);die;
+    $output = shell_exec('tacdes adiadi');
+    $trim = trim($output, "Encrypted AdminTac01 is ");
+    var_dump($output);die;
 
     $data = array(
       'username' => $this->input->post('username'),
