@@ -172,7 +172,7 @@ class Admin_model extends CI_Model
       xml_add_child($UserGroup, 'LDAPAccessUserName', 'adi');
       $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword', '');
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
-      xml_add_attribute($LDAPAccessUserPassword, 'DES', 'uTWkimSCBH1j8ZJB/5LPKA==');
+      xml_add_attribute($LDAPAccessUserPassword, 'DES', "" . "$item->password" . "");
     endforeach;
 
     foreach ($query as $item) : if ($item->group != 'op_tacacs') {
@@ -187,7 +187,7 @@ class Admin_model extends CI_Model
       xml_add_child($UserGroup, 'LDAPAccessUserName', 'adi');
       $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword');
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
-      xml_add_attribute($LDAPAccessUserPassword, 'DES', 'uTWkimSCBH1j8ZJB/5LPKA==');
+      xml_add_attribute($LDAPAccessUserPassword, 'DES', "" . "$item->password" . "");
     endforeach;
 
       $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
@@ -203,6 +203,8 @@ class Admin_model extends CI_Model
     $dom->formatOutput = true;
     $string_value = $dom->saveXML();
     $dom->save("example.xml");
+
+  
   }
 
 
