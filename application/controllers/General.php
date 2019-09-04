@@ -53,7 +53,11 @@ class General extends CI_Controller
           'level' => $user['level']
         ];
         $this->session->set_userdata($data);
-        notify('Selamat Datang ', 'success', 'dashboard');
+        if ($user['level'] == 'admin') {
+          notify('Selamat Datang ', 'success', 'dashboardAdmin');
+      } else {
+          notify('Selamat Datang', 'success', 'dashboardUser');
+      }
       } else {
         notify('Password salah ', 'error', 'login');
       }

@@ -8,8 +8,8 @@
 		</div>
 		<ul class="sidebar-menu">
 			<li class="menu-header">Dashboard</li>
-			<li class="<?php if($view_name=='dashboard'){echo 'active';}?>">
-				<a href="<?php echo base_url('dashboard'); ?>" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
+			<li class="<?php if($view_name=='admin/dashboard'){echo 'active';}?>">
+				<a href="<?php echo base_url('dashboardAdmin'); ?>" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
 			</li>
 			<li class="menu-header">Configurasi</li>
 			<li class="<?php if($view_name=='admin/account'){echo 'active';}?>">

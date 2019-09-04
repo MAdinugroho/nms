@@ -75,6 +75,7 @@ class General_model extends CI_Model
           'name' => htmlspecialchars($this->input->post('name', true)),
           'email' => htmlspecialchars($this->input->post('email', true)),
           'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+          'desc' => htmlspecialchars($this->input->post('desc', true)),
           'date_created' => $now,
       ];
       }

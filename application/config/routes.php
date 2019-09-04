@@ -10,7 +10,7 @@ $route['forgotPassword'] = 'general/forgotPassword';
 $route['profile'] = 'general/profile';
 
 //ADMIN AREA
-$route['dashboard'] = 'admin/dashboard';
+$route['dashboardAdmin'] = 'admin/dashboard';
 $route['webconf'] = 'admin/webconf';
 $route['account'] = 'admin/account';
 $route['createAccount/(:any)'] = 'admin/createAccount/$1';
@@ -21,6 +21,8 @@ $route['detailAccountTacac/(:any)'] = 'admin/detailAccountTacac/$1';
 $route['exportXml'] = 'admin/exportXml';
 $route['test'] = 'admin/test';
 
+//USER AREA
+$route['dashboardUser'] = 'user/dashboard';
 
 
 $route['404_override'] = '';

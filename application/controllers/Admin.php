@@ -20,7 +20,7 @@ class Admin extends CI_Controller
   {
     $data['account_tacac'] = $this->admin_model->getAccountTacac();
     $data['webconf'] = $this->admin_model->getWebconf();
-    $data['view_name'] = 'dashboard';
+    $data['view_name'] = 'admin/dashboard';
     $this->load->view('template', $data);
   }
 
