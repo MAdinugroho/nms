@@ -44,12 +44,12 @@
 											<input type="text" class="form-control" placeholder="Masukan telepon anda" name="office_phone_number" value="<?php echo $webconf->office_phone_number; ?>">
 										</div>
 
-										<div class="form-group col-6 col-md-12">
+										<div class="form-group col-6 col-md-6">
 											<label>Slogan</label>
 											<input type="text" class="form-control" placeholder="Masukan Slogan" name="slogan" value="<?php echo $webconf->slogan; ?>">
 										</div>
 
-										<div class="form-group col-6 col-md-12">
+										<div class="form-group col-6 col-md-6">
 											<label>Deskripsi</label>
 											<input type="text" class="form-control" placeholder="Masukan Dekripsi" name="description" value="<?php echo $webconf->description; ?>">
 										</div>
