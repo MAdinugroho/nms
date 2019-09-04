@@ -71,6 +71,12 @@ class Admin_model extends CI_Model
     return $query->row();
   }
 
+  public function dataLog()
+  {
+       $query=$this->db->query("SELECT * FROM `log` ORDER BY id DESC");
+       return $query->result();
+  }
+
   //======ACCOUNT FUNCTION======//
   public function getAccount() //ambil data akun
   {
