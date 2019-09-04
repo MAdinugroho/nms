@@ -72,6 +72,8 @@ class General extends CI_Controller
   public function forgotPassword()
   {
     if ($this->input->post('resetPassword')) {
+      $dataLog = 'Reset Password';
+      $this->general_model->insertLog($dataLog);
       $this->general_model->resetPassword();
     } else{
     $data['webconf'] = $this->general_model->getWebconf();
@@ -109,6 +111,8 @@ class General extends CI_Controller
       $data['view_name'] = "profile";
       $this->load->view('template', $data);
     } else {
+      $dataLog = 'Update Profile';
+      $this->general_model->insertLog($dataLog);
       $this->general_model->updateProfile($id);
         $data['account'] = $this->general_model->getUpdatedProfile();
         $data_session = array(
