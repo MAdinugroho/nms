@@ -10,7 +10,29 @@ class General extends CI_Controller
     $this->load->library('form_validation');
     $this->load->model('general_model');
   }
-
+  
+  public function _formValidation()
+  {
+    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
+      'required' => 'Masukan Nama',
+      'is_unique' => 'Username sudah ada'
+    ]);
+    
+    $this->form_validation->set_rules('name', 'Name', 'required|trim', [
+      'required' => 'Masukan Nama'
+    ]);
+    
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
+      'valid_email' => 'Email tidak valid',
+      'required' => 'Masukan Email'
+    ]);
+    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|hasCapital|password_check', [
+      'min_length' => 'password min 8 karakter',
+      'password_check' => 'Harus terdapat angka',
+      'hasCapital' => 'Harus terdapat 1 huruf besar',
+      'required' => 'masukan password'
+    ]);
+  }
 
   public function index()
   {
@@ -84,25 +106,8 @@ class General extends CI_Controller
 
   public function profile()
   {
-    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
-      'required' => 'Masukan Nama',
-      'is_unique' => 'Username sudah ada'
-    ]);
-
-    $this->form_validation->set_rules('name', 'Name', 'required|trim', [
-      'required' => 'Masukan Nama'
-    ]);
-
-    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
-      'valid_email' => 'Email tidak valid',
-      'required' => 'Masukan Email'
-    ]);
-    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|hasCapital|password_check', [
-      'min_length' => 'password min 8 karakter',
-      'password_check' => 'Harus terdapat angka',
-      'hasCapital' => 'Harus terdapat 1 huruf besar',
-      'required' => 'masukan password'
-    ]);
+    
+    $this->_formValidation();
     $id = $this->session->userdata['id'];
     if ($this->form_validation->run() == false) {
       $data['webconf'] = $this->general_model->getWebconf();
