@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/fontawesome/css/all.min.css">
 
   <!-- CSS Libraries -->
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/datatables/datatables.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="<?= base_url('assets'); ?>/stisla/dist/assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
 
@@ -83,6 +85,10 @@
 
   
   <!-- JS Libraies -->
+  <script src="<?= base_url('assets'); ?>/stisla/dist/assets/modules/datatables/datatables.min.js"></script>
+  <script src="<?= base_url('assets'); ?>/stisla/dist/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url('assets'); ?>/stisla/dist/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
+  <script src="<?= base_url('assets'); ?>/stisla/dist/assets/modules/jquery-ui/jquery-ui.min.js"></script>
   <script src="<?= base_url('assets'); ?>/stisla/dist/assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
 
   <!-- Page Specific JS File -->
@@ -96,6 +102,12 @@
 		if (msg.length !== 0) {
 			swal('', msg, type);
 		}
+  </script>
+  
+  <script>
+      $(document).ready(function() {
+        $('#datalog').DataTable({});
+      });
 	</script>
   
   <!-- Template JS File -->
