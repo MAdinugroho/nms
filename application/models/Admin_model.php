@@ -10,7 +10,7 @@ class Admin_model extends CI_Model
   }
 
   //======CORE FUNCTION======//
-  public function _getKodeOto($field, $table, $prefix, $length)
+  public function _getKodeOto($field, $table, $prefix, $length)//Generate group admin / user yang dipakai
   {
     global $db;
     $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '{$prefix}[0-9]{{$length}}' ORDER BY $field DESC");
@@ -24,7 +24,7 @@ class Admin_model extends CI_Model
     }
   }
 
-  public function getWebconf()
+  public function getWebconf() // memanggil konfigurasi website
   {
     $where = array(
       'id' => 1
@@ -34,12 +34,12 @@ class Admin_model extends CI_Model
 
 
   //======ACCOUNT FUNCTION======//
-  public function getAccount()
+  public function getAccount()//ambil data akun
   {
     return $this->db->get('account')->result();
   }
 
-  public function getDetailAccount($id)
+  public function getDetailAccount($id)//ambil data detail akun
   {
     $where = array(
       'id' => $id
@@ -49,7 +49,7 @@ class Admin_model extends CI_Model
     return $query->row();
   }
 
-  public function createAccount()
+  public function createAccount()//membuat akun
   {
     date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
         $now = date('Y-m-d');
@@ -60,6 +60,7 @@ class Admin_model extends CI_Model
       'email' => $this->input->post('email'),
       'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
       'level' => $this->input->post('level'),
+      'desc' => $this->input->post('desc'),
       'date_created' => $now,
       'status' => 1,
     );
@@ -67,7 +68,7 @@ class Admin_model extends CI_Model
     $this->db->insert('account', $data);
   }
 
-  public function deleteAccount()
+  public function deleteAccount()//menghapus akun
   {
     $password = $this->input->post('password');
     if (password_verify($password, $this->session->userdata['password'])) {
@@ -85,12 +86,12 @@ class Admin_model extends CI_Model
 
 
   //======ACCOUNT TACAC FUNCTION======//
-  public function getAccountTacac()
+  public function getAccountTacac()//ambil data akun tacac
   {
     return $this->db->get('account_tacac')->result();
   }
 
-  public function getDetailAccountTacac($id)
+  public function getDetailAccountTacac($id)//ambil data detail akun tacac
   {
     $where = array(
       'id' => $id
@@ -100,7 +101,7 @@ class Admin_model extends CI_Model
     return $query->row();
   }
 
-  public function createAccountTacac()
+  public function createAccountTacac()//membuat akun tacac
   {
 
     $output = shell_exec('tacdes '.$this->input->post('password').'');
@@ -130,7 +131,7 @@ class Admin_model extends CI_Model
     sleep(1);
   }
 
-  public function deleteAccountTacac()
+  public function deleteAccountTacac()//menghapus akun tacac
   {
     $password = $this->input->post('password');
     if (password_verify($password, $this->session->userdata['password'])) {
@@ -146,7 +147,7 @@ class Admin_model extends CI_Model
     }
   }
 
-  public function exportXml()
+  public function exportXml()//export data akun tacac ke xml dan pindah ke folder tacac
   {
     $query = $this->db->query("SELECT * FROM account_tacac ORDER BY id")->result();;
     // $data = array($query);
