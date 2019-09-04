@@ -11,6 +11,12 @@
 			<li class="<?php if($view_name=='admin/dashboard'){echo 'active';}?>">
 				<a href="<?php echo base_url('dashboardAdmin'); ?>" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
 			</li>
+			<li class="<?php if($view_name=='admin/monitor'){echo 'active';}?>">
+				<a href="<?php echo base_url('dashboardAdmin'); ?>" class="nav-link"><i class="fas fa-home"></i><span>Monitor</span></a>
+			</li>
+			<li class="<?php if($view_name=='admin/datalog'){echo 'active';}?>">
+				<a href="<?php echo base_url('dataLog'); ?>" class="nav-link"><i class="fas fa-home"></i><span>Log Sistem</span></a>
+			</li>
 			<li class="menu-header">Configurasi</li>
 			<li class="<?php if($view_name=='admin/account'){echo 'active';}?>">
 				<a href="<?php echo base_url('account'); ?>" class="nav-link"><i class="fas fa-cogs"></i><span>Akun</span></a>
