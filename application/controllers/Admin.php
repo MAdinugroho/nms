@@ -161,8 +161,6 @@ class Admin extends CI_Controller
 
     if ($this->input->post('updateInfo')) {
       $this->admin_model->updateInfo();
-    } else if ($this->input->post('updateEmail')) {
-      $this->admin_model->updateEmail();
     } else if ($this->input->post('updateColor')) {
       $this->admin_model->updateColor();
     }

@@ -265,14 +265,6 @@ class Admin_model extends CI_Model
     }
   }
 
-  public function updateEmail()
-  {
-    $this->db->where(array('id' => 1));
-    if ($this->db->update('webconf', array('host' => $this->input->post('host'), 'crypto' => $this->input->post('crypto'), 'port' => $this->input->post('port'), 'email' => $this->input->post('email'), 'password' => $this->input->post('password')))) {
-      notify('Konfigurasi Email Berhasil Diubah ', 'success', 'webconf');
-    }
-  }
-
   public function updateColor()
   {
     $this->db->where(array('id' => 1));
