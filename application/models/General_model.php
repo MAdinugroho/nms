@@ -41,6 +41,17 @@ class General_model extends CI_Model
     $this->db->update('webconf', $data);
   }
 
+  public function insertLog($dataLog)
+  {
+    date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
+    $data = array(
+      'name' => $this->session->userdata['username'],
+      'time'  => date("Y-m-d H:i:s"),
+      'status' => $dataLog
+    );
+    $this->db->insert('log', $data);
+  }
+
   public function resetPassword()
   {
     if ($this->getNumRow('account', 'email', $this->input->post('email')) > 0) {

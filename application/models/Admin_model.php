@@ -10,7 +10,7 @@ class Admin_model extends CI_Model
   }
 
   //======CORE FUNCTION======//
-  public function _getKodeOto($field, $table, $prefix, $length)//Generate group admin / user yang dipakai
+  public function _getKodeOto($field, $table, $prefix, $length) //Generate group admin / user yang dipakai
   {
     global $db;
     $var = $this->db->query("SELECT $field FROM $table WHERE $field REGEXP '{$prefix}[0-9]{{$length}}' ORDER BY $field DESC");
@@ -32,14 +32,52 @@ class Admin_model extends CI_Model
     return $this->db->get_where('webconf', $where)->row();
   }
 
+  public function insertLog($dataLog)
+  {
+    date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
+    $data = array(
+      'name' => $this->session->userdata['username'],
+      'time'  => date("Y-m-d H:i:s"),
+      'status' => $dataLog
+    );
+    $this->db->insert('log', $data);
+  }
+
+  public function countAdmin()
+  {
+    //$query = $this->db->get('count_admin');
+    $query = $this->db->query("SELECT COUNT(id) as jumlah_admin FROM account WHERE level='admin'");
+    return $query->row();
+  }
+
+  public function countUser()
+  {
+    //$query = $this->db->get('count_admin');
+    $query = $this->db->query("SELECT COUNT(id) as jumlah_user FROM account WHERE level='user'");
+    return $query->row();
+  }
+
+  public function countAdminTacacs()
+  {
+    //$query = $this->db->get('count_admin');
+    $query = $this->db->query("SELECT COUNT(id) as jumlah_admintacac FROM account_tacac WHERE `group`='admin_tacacs'");
+    return $query->row();
+  }
+
+  public function countOpTacacs()
+  {
+    //$query = $this->db->get('count_admin');
+    $query = $this->db->query("SELECT COUNT(id) as jumlah_optacac FROM account_tacac WHERE `group`='op_tacacs'");
+    return $query->row();
+  }
 
   //======ACCOUNT FUNCTION======//
-  public function getAccount()//ambil data akun
+  public function getAccount() //ambil data akun
   {
     return $this->db->get('account')->result();
   }
 
-  public function getDetailAccount($id)//ambil data detail akun
+  public function getDetailAccount($id) //ambil data detail akun
   {
     $where = array(
       'id' => $id
@@ -49,10 +87,10 @@ class Admin_model extends CI_Model
     return $query->row();
   }
 
-  public function createAccount()//membuat akun
+  public function createAccount() //membuat akun
   {
     date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
-        $now = date('Y-m-d');
+    $now = date('Y-m-d');
 
     $data = array(
       'username' => $this->input->post('username'),
@@ -68,13 +106,15 @@ class Admin_model extends CI_Model
     $this->db->insert('account', $data);
   }
 
-  public function deleteAccount()//menghapus akun
+  public function deleteAccount() //menghapus akun
   {
     $password = $this->input->post('password');
     if (password_verify($password, $this->session->userdata['password'])) {
       if ($this->input->post('status') == 0) {
         notify('Super Akun Tidak Dapat Dihapus', 'error', 'account');
       } else {
+        $dataLog = 'Delete '.$this->input->post('level').'';
+        $this->insertLog($dataLog);
         $this->db->delete('account', array('id' => $this->input->post('id')));
         notify('Akun Berhasil Dihapus ', 'success', 'account');
       }
@@ -86,12 +126,12 @@ class Admin_model extends CI_Model
 
 
   //======ACCOUNT TACAC FUNCTION======//
-  public function getAccountTacac()//ambil data akun tacac
+  public function getAccountTacac() //ambil data akun tacac
   {
     return $this->db->get('account_tacac')->result();
   }
 
-  public function getDetailAccountTacac($id)//ambil data detail akun tacac
+  public function getDetailAccountTacac($id) //ambil data detail akun tacac
   {
     $where = array(
       'id' => $id
@@ -101,11 +141,11 @@ class Admin_model extends CI_Model
     return $query->row();
   }
 
-  public function createAccountTacac()//membuat akun tacac
+  public function createAccountTacac() //membuat akun tacac
   {
 
-    $output = shell_exec('tacdes '.$this->input->post('password').'');
-    $passwordtrim = trim($output, "Encrypted ".$this->input->post('password')." is ");
+    $output = shell_exec('tacdes ' . $this->input->post('password') . '');
+    $passwordtrim = trim($output, "Encrypted " . $this->input->post('password') . " is ");
     // var_dump($trim);die;
 
     $data = array(
@@ -131,14 +171,14 @@ class Admin_model extends CI_Model
     sleep(1);
   }
 
-  public function deleteAccountTacac()//menghapus akun tacac
+  public function deleteAccountTacac() //menghapus akun tacac
   {
     $password = $this->input->post('password');
     if (password_verify($password, $this->session->userdata['password'])) {
       if ($this->input->post('status') == 0) {
         notify('Super Akun Tidak Dapat Dihapus', 'error', 'accountTacac');
       } else {
-        Shell_exec('powershell.exe Remove-ADUser -Identity '.$this->input->post('username').' -Confirm:$false');
+        Shell_exec('powershell.exe Remove-ADUser -Identity ' . $this->input->post('username') . ' -Confirm:$false');
         $this->db->delete('account_tacac', array('id' => $this->input->post('id')));
         notify('Akun Berhasil Dihapus ', 'success', 'accountTacac');
       }
@@ -147,7 +187,7 @@ class Admin_model extends CI_Model
     }
   }
 
-  public function exportXml()//export data akun tacac ke xml dan pindah ke folder tacac
+  public function exportXml() //export data akun tacac ke xml dan pindah ke folder tacac
   {
     $query = $this->db->query("SELECT * FROM account_tacac ORDER BY id")->result();;
     // $data = array($query);
@@ -173,7 +213,7 @@ class Admin_model extends CI_Model
       xml_add_child($UserGroup, 'LDAPAccessUserName', "" . "$item->username" . "");
       $LDAPAccessUserPassword = xml_add_child($UserGroup, 'LDAPAccessUserPassword', '');
       xml_add_attribute($LDAPAccessUserPassword, 'ClearText', '');
-      xml_add_attribute($LDAPAccessUserPassword, 'DES', "" .$item->password ."");
+      xml_add_attribute($LDAPAccessUserPassword, 'DES', "" . $item->password . "");
     endforeach;
 
     foreach ($query as $item) : if ($item->group != 'op_tacacs') {
@@ -191,15 +231,15 @@ class Admin_model extends CI_Model
       xml_add_attribute($LDAPAccessUserPassword, 'DES', "" . "$item->password" . "");
     endforeach;
 
-      $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
-      xml_add_child($UserGroup, 'Name', 'Local System Administrators');
-      xml_add_child($UserGroup, 'AuthenticationType', 'Localhost');
-      xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
+    $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
+    xml_add_child($UserGroup, 'Name', 'Local System Administrators');
+    xml_add_child($UserGroup, 'AuthenticationType', 'Localhost');
+    xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
 
-      $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
-      xml_add_child($UserGroup, 'Name', 'DEFAULT');
-      xml_add_child($UserGroup, 'AuthenticationType', 'Localhost');
-      xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
+    $UserGroup = xml_add_child($UserGroups, 'UserGroup', '');
+    xml_add_child($UserGroup, 'Name', 'DEFAULT');
+    xml_add_child($UserGroup, 'AuthenticationType', 'Localhost');
+    xml_add_child($UserGroup, 'LocalhostGroupName', 'Administrators');
     //  xml_print($dom, $return = false);
     $dom->formatOutput = true;
     $string_value = $dom->saveXML();
@@ -211,7 +251,6 @@ class Admin_model extends CI_Model
     sleep(4);
     Shell_Exec('powershell.exe net start tacacs.net');
     sleep(3);
-  
   }
 
 

@@ -64,6 +64,7 @@
 										<h6>Apakah anda yakin menghapus akun <?php echo $account->username; ?> ? untuk melanjutkan silahkan masukan password anda pada kolom dibawah ini</h6>
 										<input type="password" name="password" class="form-control" placeholder="masukan password anda">
 										<input type="text" name="id" value="<?php echo $account->id; ?>" hidden>
+										<input type="text" name="level" value="<?php echo $account->level; ?>" hidden>
 										<input type="text" name="status" value="<?php echo $account->status; ?>" hidden>
 									</div>
 									<div class="card-footer col-6">

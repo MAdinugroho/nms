@@ -14,7 +14,7 @@
 						<h4>Admin Terdaftar</h4>
 					</div>
 					<div class="card-body">
-						10
+					<?php echo $record_admin->jumlah_admin; ?>
 					</div>
 				</div>
 			</div>
@@ -26,10 +26,10 @@
 				</div>
 				<div class="card-wrap">
 					<div class="card-header">
-						<h4>Operator Terdaftar</h4>
+						<h4>User Terdaftar</h4>
 					</div>
 					<div class="card-body">
-						42
+					<?php echo $record_user->jumlah_user; ?>
 					</div>
 				</div>
 			</div>
@@ -41,10 +41,10 @@
 				</div>
 				<div class="card-wrap">
 					<div class="card-header">
-						<h4>Reports</h4>
+						<h4>Admin Tacac Terdaftar</h4>
 					</div>
 					<div class="card-body">
-						1,201
+					<?php echo $record_admintacacs->jumlah_admintacac; ?>
 					</div>
 				</div>
 			</div>
@@ -56,10 +56,10 @@
 				</div>
 				<div class="card-wrap">
 					<div class="card-header">
-						<h4>Online Users</h4>
+						<h4>OP Tacac Terdaftar</h4>
 					</div>
 					<div class="card-body">
-						47
+					<?php echo $record_optacacs->jumlah_optacac; ?>
 					</div>
 				</div>
 			</div>

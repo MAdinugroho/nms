@@ -19,26 +19,16 @@ class Admin extends CI_Controller
   public function dashboard()
   {
     $data['account_tacac'] = $this->admin_model->getAccountTacac();
+    $data['record_admin'] = $this->admin_model->countAdmin();
+    $data['record_user'] = $this->admin_model->countUser();
+    $data['record_admintacacs'] = $this->admin_model->countAdmintacacs();
+    $data['record_optacacs'] = $this->admin_model->countOptacacs();
     $data['webconf'] = $this->admin_model->getWebconf();
     $data['view_name'] = 'admin/dashboard';
     $this->load->view('template', $data);
   }
 
-  public function webconf()
-  {
-
-    if ($this->input->post('updateInfo')) {
-      $this->admin_model->updateInfo();
-    } else if ($this->input->post('updateEmail')) {
-      $this->admin_model->updateEmail();
-    } else if ($this->input->post('updateColor')) {
-      $this->admin_model->updateColor();
-    }
-    $data['webconf'] = $this->admin_model->getWebconf();
-    $data['view_name'] = 'webconf';
-    $this->load->view('template', $data);
-  }
-
+  
   public function account()
   {
     if ($this->input->post('checkGroup')) {
@@ -80,6 +70,8 @@ class Admin extends CI_Controller
       $data['view_name'] = 'admin/create_account';
       $this->load->view('template', $data);
     } else {
+      $dataLog = 'Create '.$id.'';
+      $this->admin_model->insertLog($dataLog);
       $this->admin_model->createAccount();
       notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'account');
     }
@@ -89,8 +81,6 @@ class Admin extends CI_Controller
   {
     if($this->input->post('deleteAccount')){$this->admin_model->deleteAccount();}
     $data['account'] = $this->admin_model->getDetailAccount($id);
-    // var_dump($data['accounttacac']);
-    // die;
     $data['webconf'] = $this->admin_model->getWebconf();
     $data['view_name'] = "admin/detail_account";
     $this->load->view('template', $data);
@@ -153,8 +143,6 @@ class Admin extends CI_Controller
   {
     if($this->input->post('deleteAccountTacac')){$this->admin_model->deleteAccountTacac();}
     $data['accounttacac'] = $this->admin_model->getDetailAccountTacac($id);
-    // var_dump($data['accounttacac']);
-    // die;
     $data['webconf'] = $this->admin_model->getWebconf();
     $data['view_name'] = "admin/detail_account_tacac";
     $this->load->view('template', $data);
@@ -166,28 +154,18 @@ class Admin extends CI_Controller
     notify('xml Berhasil Di export', 'Success', 'accountTacac');
   }
 
-  public function test()
+  public function webconf()
   {
-    Shell_Exec('powershell.exe copy example.xml ../../"');
-    notify('xml Berhasil di copy', 'Success', 'accountTacac');
-    // exec("C:\Users\Nugie\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell");
+
+    if ($this->input->post('updateInfo')) {
+      $this->admin_model->updateInfo();
+    } else if ($this->input->post('updateEmail')) {
+      $this->admin_model->updateEmail();
+    } else if ($this->input->post('updateColor')) {
+      $this->admin_model->updateColor();
+    }
+    $data['webconf'] = $this->admin_model->getWebconf();
+    $data['view_name'] = 'webconf';
+    $this->load->view('template', $data);
   }
-
-  // public function createAccountTacac2($id)
-  // {
-  //   if ($this->input->post('createAccountTacac')) {
-  //     $this->admin_model->createAccountTacac();
-  //   } else {
-  //     if ($id == 'admin_tacacs') {
-  //       $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 1);
-  //     } elseif ($id == 'op_tacacs') {
-  //       $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'op_tacacs', 1);
-  //     }
-  //     $data['webconf'] = $this->admin_model->getDataRow('webconf', 'id', 1);
-  //     $data['group'] = $id;
-  //     $data['view_name'] = 'create_account_tacac';
-  //     $this->load->view('template', $data);
-  //   }
-  // }
-
 }

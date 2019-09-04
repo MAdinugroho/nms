@@ -54,6 +54,8 @@ class General extends CI_Controller
         ];
         $this->session->set_userdata($data);
         $this->general_model->updateLastLog();
+        $dataLog = 'Login';
+        $this->general_model->insertLog($dataLog);
         if ($user['level'] == 'admin') {
           notify('Selamat Datang ', 'success', 'dashboardAdmin');
       } else {
@@ -133,6 +135,8 @@ class General extends CI_Controller
 
   public function logout()
   {
+    $dataLog = 'Logout';
+    $this->general_model->insertLog($dataLog);
     $this->session->sess_destroy();
     redirect(base_url('/'));
   }
