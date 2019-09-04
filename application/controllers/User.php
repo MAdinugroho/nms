@@ -17,7 +17,7 @@ class User extends CI_Controller
 
   public function dashboard()
   {
-    // $data['account_tacac'] = $this->admin_model->getAccountTacac();
+    $data['account_tacac'] = $this->admin_model->getAccountTacac();
     $data['webconf'] = $this->admin_model->getWebconf();
     $data['view_name'] = 'user/dashboard';
     $this->load->view('template', $data);
