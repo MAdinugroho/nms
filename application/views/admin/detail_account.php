@@ -19,7 +19,7 @@
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">
 							<form role="form" method="post">
-								<div class="pl-lg-4">
+								<div class="col-12 pl-lg-4">
 									<div class="row">
 										<div class="form-group col-6">
 											<label>Username</label>
@@ -49,25 +49,29 @@
 											<label>Hak Akses</label>
 											<input type="text" class="form-control" name="level" value="<?php echo $account->level; ?>" disabled>
 										</div>
+										<div class="form-group col-12">
+											<label>Keterangan</label>
+											<textarea class="form-control summernote-simple" id="desc" name="desc" value="" disabled><?php echo $account->desc; ?></textarea>
+										</div>
 									</div>
 								</div>
 							</form>
 						</div>
 						<div class="tab-pane fade" id="op" role="tabpanel" aria-labelledby="op-tab">
-						<div class="row">
-							<form method="post">
-							<div class="form-group col-12">
-							<p>Apakah anda yakin menghapus akun <?php echo $account->username; ?> ? untuk melanjutkan silahkan masukan password anda pada kolom dibawah ini</p>
-								<input type="password" name="password" class="form-control" placeholder="masukan password anda">
-								<input type="text" name="id" value="<?php echo $account->id; ?>" hidden>
-								<input type="text" name="status" value="<?php echo $account->status; ?>" hidden>
+							<div class="row">
+								<form method="post">
+									<div class="form-group col-12">
+										<h6>Apakah anda yakin menghapus akun <?php echo $account->username; ?> ? untuk melanjutkan silahkan masukan password anda pada kolom dibawah ini</h6>
+										<input type="password" name="password" class="form-control" placeholder="masukan password anda">
+										<input type="text" name="id" value="<?php echo $account->id; ?>" hidden>
+										<input type="text" name="status" value="<?php echo $account->status; ?>" hidden>
+									</div>
+									<div class="card-footer col-6">
+										<button type="submit" class="btn btn-danger" name="deleteAccount" value="deleteAccount">Hapus Akun</button>
+										<a href="<?php echo base_url('account'); ?>" class="btn btn-warning">Kembali</a>
+									</div>
+								</form>
 							</div>
-							<div class="card-footer col-6">
-                              <button type="submit" class="btn btn-danger" name="deleteAccount" value="deleteAccount">Hapus Akun</button>
-                              <a href="<?php echo base_url('account'); ?>" class="btn btn-warning" >Kembali</a>
-							</div>
-							</form>
-						</div>
 						</div>
 					</div>
 				</div>
