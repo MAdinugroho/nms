@@ -53,6 +53,7 @@ class General extends CI_Controller
           'level' => $user['level']
         ];
         $this->session->set_userdata($data);
+        $this->general_model->updateLastLog();
         if ($user['level'] == 'admin') {
           notify('Selamat Datang ', 'success', 'dashboardAdmin');
       } else {

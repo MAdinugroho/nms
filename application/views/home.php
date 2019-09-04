@@ -55,8 +55,9 @@
     <div class="callout container">
         <div class="row">
             <div class="col-md-6 col-12 mb-4 mb-lg-0">
-                <div class="text-job text-muted text-14">Sesi Terahir Oleh</div>
-                <div class="h1 mb-0 font-weight-bold"><span class="font-weight-500">just a </span>statistic</div>
+                <div class="text-job text-muted text-14">Sesi Terahir Diakses Oleh</div>
+                <div class="h3 mb-0 font-weight-bold"><?php echo $webconf->lastaccess; ?></div>
+                <div class="h4 mb-0 font-weight-bold">Pada <?php echo $webconf->timeaccess; ?></div>
             </div>
             <div class="col-6 col-md-3 text-center">
                 <div class="h2 font-weight-bold">7000+</div>
