@@ -14,7 +14,7 @@
 						<h4>Admin Terdaftar</h4>
 					</div>
 					<div class="card-body">
-					<?php echo $record_admin->jumlah_admin; ?>
+						<?php echo $record_admin->jumlah_admin; ?>
 					</div>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 						<h4>User Terdaftar</h4>
 					</div>
 					<div class="card-body">
-					<?php echo $record_user->jumlah_user; ?>
+						<?php echo $record_user->jumlah_user; ?>
 					</div>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 						<h4>Admin Tacac Terdaftar</h4>
 					</div>
 					<div class="card-body">
-					<?php echo $record_admintacacs->jumlah_admintacac; ?>
+						<?php echo $record_admintacacs->jumlah_admintacac; ?>
 					</div>
 				</div>
 			</div>
@@ -59,14 +59,27 @@
 						<h4>OP Tacac Terdaftar</h4>
 					</div>
 					<div class="card-body">
-					<?php echo $record_optacacs->jumlah_optacac; ?>
+						<?php echo $record_optacacs->jumlah_optacac; ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-12 col-sm-12 col-lg-6">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-header">
+					<h4>Card Title</h4>
+				</div>
+				<div class="card-body">
+					This is some text within a card body.
+				</div>
+				<div class="card-footer">
+					Footer Card
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
 			<div class="card card-danger">
 				<div class="card-header">
 					<h4>Users Tacac</h4>
@@ -76,25 +89,25 @@
 				</div>
 				<div class="card-body">
 					<div class="owl-carousel owl-theme" id="users-carousel">
-					<?php foreach ($account_tacac as $item): ?>
-						<div>
-							<div class="user-item">
-								<!-- <img alt="image" src="<?= base_url('assets'); ?>/stisla/dist/assets/img/avatar/avatar-1.png"  class="img-fluid"> -->
-								<div class="user-details">
-									<div class="user-name"><?php echo $item->name; ?></div>
-									<div class="text-job text-muted"><?php echo $item->group; ?></div>
-									<div class="user-cta">
-									<a href="<?php echo base_url('detailAccountTacac/'.$item->id) ?>"
-												class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
+						<?php foreach ($account_tacac as $item) : ?>
+							<div>
+								<div class="user-item">
+									<!-- <img alt="image" src="<?= base_url('assets'); ?>/stisla/dist/assets/img/avatar/avatar-1.png"  class="img-fluid"> -->
+									<div class="user-details">
+										<div class="user-name"><?php echo $item->name; ?></div>
+										<div class="text-job text-muted"><?php echo $item->group; ?></div>
+										<div class="user-cta">
+											<a href="<?php echo base_url('detailAccountTacac/' . $item->id) ?>" class="btn btn-<?php echo $webconf->main_color; ?> btn-round">Detail
 												Akun</a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 						<?php endforeach; ?>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 </section>
