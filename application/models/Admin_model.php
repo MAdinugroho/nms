@@ -43,28 +43,28 @@ class Admin_model extends CI_Model
     $this->db->insert('log', $data);
   }
 
-  public function countAdmin()
+  public function countAdmin()//Menjumlah Total Admin
   {
     //$query = $this->db->get('count_admin');
     $query = $this->db->query("SELECT COUNT(id) as jumlah_admin FROM account WHERE level='admin'");
     return $query->row();
   }
 
-  public function countUser()
+  public function countUser()//Menjumlah Total User
   {
     //$query = $this->db->get('count_admin');
     $query = $this->db->query("SELECT COUNT(id) as jumlah_user FROM account WHERE level='user'");
     return $query->row();
   }
 
-  public function countAdminTacacs()
+  public function countAdminTacacs()//Menjumlah Total Admin Tacac
   {
     //$query = $this->db->get('count_admin');
     $query = $this->db->query("SELECT COUNT(id) as jumlah_admintacac FROM account_tacac WHERE `group`='admin_tacacs'");
     return $query->row();
   }
 
-  public function countOpTacacs()
+  public function countOpTacacs()//Menjumlah Total Operator
   {
     //$query = $this->db->get('count_admin');
     $query = $this->db->query("SELECT COUNT(id) as jumlah_optacac FROM account_tacac WHERE `group`='op_tacacs'");
@@ -192,8 +192,7 @@ class Admin_model extends CI_Model
   public function exportXml() //export data akun tacac ke xml dan pindah ke folder tacac
   {
     $query = $this->db->query("SELECT * FROM account_tacac ORDER BY id")->result();;
-    // $data = array($query);
-    //  var_dump($query);die;
+
 
     //Inisiasi Helper Adi//
     $this->load->helper('xml');

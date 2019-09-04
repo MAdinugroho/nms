@@ -18,7 +18,7 @@ class General_model extends CI_Model
     return $this->db->update($table, $data = array($setVar => $setVal));
   }
 
-  public function getWebconf()
+  public function getWebconf() // memanggil konfigurasi website
   {
     $where = array(
       'id' => 1
@@ -26,14 +26,14 @@ class General_model extends CI_Model
     return $this->db->get_where('webconf', $where)->row();
   }
 
-  public function login($username)
+  public function login($username)//Fungsi Model Login
   {
     return $this->db->get_where('account', ['username' => $username])->row_array();
   }
 
-  public function updateLastLog()
+  public function updateLastLog()//Menampilkan Sesion Terahir
   {
-    date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
+    date_default_timezone_set('Asia/Jakarta'); 
     $data = array(
       'lastaccess' => $this->session->userdata['username'],
       'timeaccess'  => date("Y-m-d H:i:s")
@@ -41,9 +41,9 @@ class General_model extends CI_Model
     $this->db->update('webconf', $data);
   }
 
-  public function insertLog($dataLog)
+  public function insertLog($dataLog)//Memasukan Log Dashboard ke Database
   {
-    date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
+    date_default_timezone_set('Asia/Jakarta'); 
     $data = array(
       'name' => $this->session->userdata['username'],
       'time'  => date("Y-m-d H:i:s"),
@@ -52,7 +52,7 @@ class General_model extends CI_Model
     $this->db->insert('log', $data);
   }
 
-  public function resetPassword()
+  public function resetPassword()//Buat Reset Password
   {
     if ($this->getNumRow('account', 'email', $this->input->post('email')) > 0) {
       $newPassword = rand(100000, 999999);
@@ -65,7 +65,7 @@ class General_model extends CI_Model
   }
 
 
-  public function getDetailUser($id)
+  public function getDetailUser($id)// Detail Profile
   {
     $where = array(
       'id' => $id
@@ -75,7 +75,7 @@ class General_model extends CI_Model
     return $query->row();
   }
 
-  public function updateProfile($id)
+  public function updateProfile($id)// Buat Update Profile
   {
     date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
     $now = date('Y-m-d');
@@ -104,7 +104,7 @@ class General_model extends CI_Model
     $this->db->update('account', $data, $where);
   }
 
-  public function getUpdatedProfile()
+  public function getUpdatedProfile()// Ambil data sesudah di update
   {
     $where = array('id' => $this->session->userdata['id']);
     $query = $this->db->get_where('account', $where);
