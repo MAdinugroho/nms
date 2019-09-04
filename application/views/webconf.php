@@ -21,9 +21,6 @@
 							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Informasi Web</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Konfigurasi Email</a>
-						</li>
-						<li class="nav-item">
 							<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Konfigurasi Warna</a>
 						</li>
 					</ul>
@@ -63,42 +60,6 @@
 								</div>
 								<div class="card-footer">
 									<button type="submit" class="btn btn-lg btn-info" name="updateInfo" value="updateInfo">Update Data</button>
-								</div>
-							</form>
-						</div>
-						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-							<form method="post">
-								<div class="card-body">
-									<div class="row">
-										<div class="form-group col-6 col-md-3">
-											<label>Host</label>
-											<input type="text" class="form-control" placeholder="Masukan host email anda" name="host" value="<?php echo  $webconf->host; ?>">
-										</div>
-
-										<div class="form-group col-6 col-md-3">
-											<label>Email</label>
-											<input type="text" class="form-control" placeholder="Masukan email anda" name="email" value="<?php echo  $webconf->email; ?>">
-										</div>
-
-										<div class="form-group col-6 col-md-3">
-											<label>Password</label>
-											<input type="password" class="form-control" placeholder="Masukan password anda" name="password" value="<?php echo  $webconf->password; ?>">
-										</div>
-
-										<div class="form-group col-6 col-md-1">
-											<label>Port</label>
-											<input type="text" class="form-control" placeholder="Masukan port email anda" name="port" value="<?php echo  $webconf->port; ?>">
-										</div>
-
-										<div class="form-group col-6 col-md-2">
-											<label>Crypto</label>
-											<input type="text" class="form-control" placeholder="Masukan crypto anda" name="crypto" value="<?php echo  $webconf->crypto; ?>">
-										</div>
-
-									</div>
-								</div>
-								<div class="card-footer">
-									<button type="submit" class="btn btn-info" name="updateEmail" value="updateEmail">Update Data</button>
 								</div>
 							</form>
 						</div>
