@@ -134,6 +134,8 @@ class Admin extends CI_Controller
       $data['view_name'] = 'admin/create_account_tacac';
       $this->load->view('template', $data);
     } else {
+      $dataLog = 'Create '.$id.'';
+      $this->admin_model->insertLog($dataLog);
       $this->admin_model->createAccountTacac();
       notify('Pembuatan Akun Berhasil Dilakukan', 'success', 'accountTacac');
     }

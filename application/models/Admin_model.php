@@ -180,6 +180,8 @@ class Admin_model extends CI_Model
       } else {
         Shell_exec('powershell.exe Remove-ADUser -Identity ' . $this->input->post('username') . ' -Confirm:$false');
         $this->db->delete('account_tacac', array('id' => $this->input->post('id')));
+        $dataLog = 'Delete '.$this->input->post('group').'';
+        $this->insertLog($dataLog);
         notify('Akun Berhasil Dihapus ', 'success', 'accountTacac');
       }
     } else {
