@@ -7,6 +7,20 @@ class General_model extends CI_Model
     $this->load->database();
   }
 
+  public function countUser()//Menjumlah Total User
+  {
+    //$query = $this->db->get('count_admin');
+    $query = $this->db->query("SELECT COUNT(id) as jumlah_user FROM account WHERE level='user'");
+    return $query->row();
+  }
+
+  public function countOpTacacs()//Menjumlah Total Operator
+  {
+    //$query = $this->db->get('count_admin');
+    $query = $this->db->query("SELECT COUNT(id) as jumlah_optacac FROM account_tacac WHERE `group`='op_tacacs'");
+    return $query->row();
+  }
+
   public function getNumRow($table, $whereVar1, $whereVal1)
   {
     return $this->db->get_where($table, $where = array($whereVar1 => $whereVal1))->num_rows();

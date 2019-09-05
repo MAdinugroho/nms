@@ -37,6 +37,8 @@ class General extends CI_Controller
 
   public function index()
   {
+    $data['record_user'] = $this->general_model->countUser();
+    $data['record_optacacs'] = $this->general_model->countOptacacs();
     $data['webconf'] = $this->general_model->getWebconf('webconf', 'id', 1);
     $this->load->view('home', $data);
   }

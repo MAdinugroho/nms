@@ -60,11 +60,11 @@
                 <div class="h4 mb-0 font-weight-bold">Pada <?php echo $webconf->timeaccess; ?></div>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <div class="h2 font-weight-bold">7000+</div>
+                <div class="h2 font-weight-bold"><?php echo $record_user->jumlah_user; ?></div>
                 <div class="text-uppercase font-weight-bold ls-2 text-primary">User Terdaftar</div>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <div class="h2 font-weight-bold">125+</div>
+                <div class="h2 font-weight-bold"><?php echo $record_optacacs->jumlah_optacac; ?></div>
                 <div class="text-uppercase font-weight-bold ls-2 text-primary">Operator Terdaftar</div>
             </div>
         </div>
