@@ -11,6 +11,7 @@ class General extends CI_Controller
     $this->load->model('general_model');
   }
   
+  //=====Core Function====//
   public function _formValidation()
   {
     $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [

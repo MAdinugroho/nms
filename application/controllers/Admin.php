@@ -15,7 +15,8 @@ class Admin extends CI_Controller
     }
   }
 
-  public function _formValidation()
+  //=====Core Function====//
+  public function _formValidation()//Fungsi Form Validasi
   {
     $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
       'required' => 'Masukan Nama',
@@ -39,6 +40,7 @@ class Admin extends CI_Controller
     ]);
   }
 
+
   public function dashboard()
   {
     $data['account_tacac'] = $this->admin_model->getAccountTacac();
@@ -59,6 +61,7 @@ class Admin extends CI_Controller
     $this->load->view('template', $data);
   }
   
+  //=====Account Function=====//
   public function account()
   {
     if ($this->input->post('checkGroup')) {
@@ -97,7 +100,7 @@ class Admin extends CI_Controller
   }
 
 
-
+  //=====Account Tacac Function=====//
   public function accountTacac()
   {
     if ($this->input->post('checkGroupTacac')) {

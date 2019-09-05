@@ -1,15 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
+//===GENERAL AREA===//
 $route['default_controller'] = 'general';
-//GENERAL AREA
 $route['login'] = 'general/login';
 $route['logout'] = 'general/logout';
 $route['forgotPassword'] = 'general/forgotPassword';
 $route['profile'] = 'general/profile';
 
-//ADMIN AREA
+//===ADMIN AREA===//
 $route['dashboardAdmin'] = 'admin/dashboard';
 $route['webconf'] = 'admin/webconf';
 $route['account'] = 'admin/account';
@@ -20,9 +19,8 @@ $route['createAccountTacac/(:any)'] = 'admin/createAccountTacac/$1';
 $route['detailAccountTacac/(:any)'] = 'admin/detailAccountTacac/$1';
 $route['dataLog'] = 'admin/dataLog';
 $route['exportXml'] = 'admin/exportXml';
-$route['test'] = 'admin/test';
 
-//USER AREA
+//===USER AREA===//
 $route['dashboardUser'] = 'user/dashboard';
 
 
