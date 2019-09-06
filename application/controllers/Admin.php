@@ -44,6 +44,7 @@ class Admin extends CI_Controller
   public function dashboard()
   {
     $data['account_tacac'] = $this->admin_model->getAccountTacac();
+    $data['account'] = $this->admin_model->getAccount();
     $data['record_admin'] = $this->admin_model->countAdmin();
     $data['record_user'] = $this->admin_model->countUser();
     $data['record_admintacacs'] = $this->admin_model->countAdmintacacs();
@@ -165,7 +166,7 @@ class Admin extends CI_Controller
       $this->admin_model->updateColor();
     }
     $data['webconf'] = $this->admin_model->getWebconf();
-    $data['view_name'] = 'webconf';
+    $data['view_name'] = 'admin/webconf';
     $this->load->view('template', $data);
   }
 }

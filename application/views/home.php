@@ -73,14 +73,13 @@
             <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="text-capitalize">Stisla</h3>
-                    <div class="pr-lg-5">
-                        <p>Stisla was created by <a href="https://twitter.com/mhdnauvalazhar">Muhamad Nauval Azhar</a> to help developers create their own UI designs for the dashboard. Stisla is free for anyone, support us by becoming a sponsor and keeping this project alive.</p>
-                        <p>&copy; Stisla. With <i class="fas fa-heart text-danger"></i> from Indonesia</p>
-                        <div class="mt-4 social-links">
-                            <a href="https://github.com/stisla"><i class="fab fa-github"></i></a>
-                            <a href="https://twitter.com/getstisla"><i class="fab fa-twitter"></i></a>
-                        </div>
+                <img src="<?= base_url('assets'); ?>/img/undip.png" width="45" class="img-rounded float: left;" alt="...">
+                    <h3 class="text-capitalize">BAPSI UNDIP</h3>
+                    <div class="pr-lg-2">
+                        <p>Biro Administrasi Perencanaan dan Sistem Informasi</p>
+                        <p>Alamat: <?php echo $webconf->office_address; ?></p>
+                        <p>Telpon: <?php echo $webconf->office_phone_number; ?></p>
+                        <p>Email: <?php echo $webconf->office_phone_number; ?></p>
                     </div>
                 </div>
                 <div class="col-md-6">

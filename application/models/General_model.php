@@ -66,6 +66,17 @@ class General_model extends CI_Model
     $this->db->insert('log', $data);
   }
 
+  public function insertForgotLog($dataLog, $dataEmailLog)//Memasukan Log Dashboard ke Database
+  {
+    date_default_timezone_set('Asia/Jakarta'); 
+    $data = array(
+      'name' => $dataEmailLog,
+      'time'  => date("Y-m-d H:i:s"),
+      'status' => $dataLog
+    );
+    $this->db->insert('log', $data);
+  }
+
   public function resetPassword()//Buat Reset Password
   {
     if ($this->getNumRow('account', 'email', $this->input->post('email')) > 0) {

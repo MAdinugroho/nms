@@ -23,7 +23,7 @@ $route['exportXml'] = 'admin/exportXml';
 
 //===USER AREA===//
 $route['dashboardUser'] = 'user/dashboard';
-
+$route['monitorUser'] = 'user/monitor';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

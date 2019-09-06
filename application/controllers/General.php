@@ -98,7 +98,8 @@ class General extends CI_Controller
   {
     if ($this->input->post('resetPassword')) {
       $dataLog = 'Reset Password';
-      $this->general_model->insertLog($dataLog);
+      $dataEmailLog = $this->input->post('email');
+      $this->general_model->insertForgotLog($dataLog,$dataEmailLog);
       $this->general_model->resetPassword();
     } else{
     $data['webconf'] = $this->general_model->getWebconf();

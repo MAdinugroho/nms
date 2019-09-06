@@ -18,3 +18,22 @@ $("#users-carousel").owlCarousel({
     }
   }
 });
+
+$("#users-carousel2").owlCarousel({
+  items: 3,
+  margin: 20,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  loop: true,
+  responsive: {
+    0: {
+      items: 2
+    },
+    578: {
+      items: 3
+    },
+    768: {
+      items: 3
+    }
+  }
+});
