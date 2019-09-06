@@ -72,10 +72,7 @@
 					<h4>Card Title</h4>
 				</div>
 				<div class="card-body">
-					This is some text within a card body.
-				</div>
-				<div class="card-footer">
-					Footer Card
+				<iframe src="http://10.42.12.180:5601/app/kibana#/dashboard/a38c8d10-d071-11e9-b261-c141a9011dcd?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-7d%2Cto%3Anow))&_a=(fullScreenMode:!t)"frameborder="0" scrolling="no" height="500" width="100%"></iframe>
 				</div>
 			</div>
 		</div>

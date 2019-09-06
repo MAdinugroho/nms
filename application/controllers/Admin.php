@@ -53,6 +53,13 @@ class Admin extends CI_Controller
     $this->load->view('template', $data);
   }
 
+  public function monitor()
+  {
+    $data['webconf'] = $this->admin_model->getWebconf();
+    $data['view_name'] = 'monitor';
+    $this->load->view('template', $data);
+  }
+
   public function dataLog()
   {
     $data['webconf'] = $this->admin_model->getWebconf();
