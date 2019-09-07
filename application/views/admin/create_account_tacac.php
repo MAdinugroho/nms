@@ -44,8 +44,8 @@
 								<?= form_error('email', '<small class="text-danger" pl-3>', '</small>') ?>
 							</div>
 							<div class="form-group col-6">
-								<label>Nama Active Directory</label>
-								<input type="text" class="form-control" readonly="readonly" name="adname" value="<?php echo $gen; ?>">
+								<label>Group</label>
+								<input type="text" class="form-control" name="group" readonly="readonly" value="<?php echo $group; ?>">
 							</div>
 						</div>
 						<div class="row">
@@ -55,8 +55,7 @@
 								<?= form_error('password', '<small class="text-danger" pl-3>', '</small>') ?>
 							</div>
 							<div class="form-group col-6">
-								<label>Group</label>
-								<input type="text" class="form-control" name="group" readonly="readonly" value="<?php echo $group; ?>">
+								<input type="text" class="form-control" readonly="readonly" name="adname" value="<?php echo $gen; ?>"hidden>
 							</div>
 						</div>
 							<div class="modal-footer">
