@@ -41,7 +41,7 @@
 				</div>
 				<div class="card-wrap">
 					<div class="card-header">
-						<h4>Admin Tacac Terdaftar</h4>
+						<h4>Admin Tacacs Terdaftar</h4>
 					</div>
 					<div class="card-body">
 						<?php echo $record_admintacacs->jumlah_admintacac; ?>
@@ -56,7 +56,7 @@
 				</div>
 				<div class="card-wrap">
 					<div class="card-header">
-						<h4>OP Tacac Terdaftar</h4>
+						<h4>OP Tacacs Terdaftar</h4>
 					</div>
 					<div class="card-body">
 						<?php echo $record_optacacs->jumlah_optacac; ?>

@@ -26,7 +26,7 @@
 				</div>
 				<div class="card-wrap">
 					<div class="card-header">
-						<h4>OP Tacac Terdaftar</h4>
+						<h4>OP Tacacs Terdaftar</h4>
 					</div>
 					<div class="card-body">
 						<?php echo $record_optacacs->jumlah_optacac; ?>
@@ -50,11 +50,13 @@
 		<div class="col-6">
 			<div class="card card-danger">
 				<div class="card-header">
-					<h4>Users Tacac</h4>
+					<h4>Users Tacacs</h4>
 				</div>
 				<div class="card-body">
 					<div class="owl-carousel owl-theme" id="users-carousel">
-						<?php foreach ($account_tacac as $item) : ?>
+						<?php foreach ($account_tacac as $item) : if ($item->group != 'op_tacacs') {
+								continue;
+							}?>
 							<div>
 								<div class="user-item">
 									<!-- <img alt="image" src="<?= base_url('assets'); ?>/stisla/dist/assets/img/avatar/avatar-1.png"  class="img-fluid"> -->
