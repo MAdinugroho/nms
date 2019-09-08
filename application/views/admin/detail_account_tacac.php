@@ -36,16 +36,6 @@
 											<input type="text" class="form-control" placeholder="Masukan Email" id="email" name="email" value="<?php echo $accounttacac->email; ?>" disabled>
 										</div>
 										<div class="form-group col-6">
-											<label>Nama Active Directory</label>
-											<input type="text" class="form-control" name="adname" value="<?php echo $accounttacac->adname; ?>" disabled>
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col-6">
-											<label>Password</label>
-											<input type="text" class="form-control" placeholder="Masukan password" name="password" disabled>
-										</div>
-										<div class="form-group col-6">
 											<label>Group</label>
 											<input type="text" class="form-control" name="group" value="<?php echo $accounttacac->group; ?>" disabled>
 										</div>

@@ -42,10 +42,6 @@
 									</div>
 									<div class="row">
 										<div class="form-group col-6">
-											<label>Password</label>
-											<input type="text" class="form-control" placeholder="Masukan password" name="password" disabled>
-										</div>
-										<div class="form-group col-6">
 											<label>Hak Akses</label>
 											<input type="text" class="form-control" name="level" value="<?php echo $account->level; ?>" disabled>
 										</div>

@@ -20,7 +20,7 @@
 								<a href="#" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"
 									data-toggle="modal" data-target="#addAccountTacac"><i class="far fa-user"></i>
 									Tambah Akun</a>
-									<a href="<?php echo base_url('exportXml'); ?>" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"><i class="far fa-user"></i>Update Active Directory</a>
+									<a href="<?php echo base_url('exportXml'); ?>" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"><i class="far fa-user"></i>Restart Tacac</a>
 							</div>
 						</div>
 					</div>

@@ -6,17 +6,17 @@ class Admin extends CI_Controller
 
   public function __construct()
   {
-    parent::__construct();
-    $this->load->library('form_validation');
-    $this->load->model('admin_model');
+    parent::__construct(); //method construktor yang pasti dijalankan ketika class dijalankan
+    $this->load->library('form_validation');//memanggil library form validasi untuk validasi input
+    $this->load->model('admin_model');//memanggil model untuk fungsi yang berhubungan dengan DB
 
     if (!$this->session->userdata['login']) {
-      notify('Silakan Login Terlebih Dahulu', 'Warning', 'login');
+      notify('Silakan Login Terlebih Dahulu', 'Warning', 'login');//pengecekan session, jika ga ada session di arahkan ke halaman login
     }
   }
 
   //=====Core Function====//
-  public function _formValidation()//Fungsi Form Validasi
+  public function _formValidation()//Fungsi Form Validasi untuk ngecek username,name,email,password yang diinput
   {
     $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
       'required' => 'Masukan Nama',
@@ -41,7 +41,7 @@ class Admin extends CI_Controller
   }
 
 
-  public function dashboard()
+  public function dashboard()//fungsi controler untuk menampilkan halaman pertama untuk role admin
   {
     $data['account_tacac'] = $this->admin_model->getAccountTacac();
     $data['account'] = $this->admin_model->getAccount();
@@ -54,9 +54,10 @@ class Admin extends CI_Controller
     $this->load->view('template', $data);
   }
 
-  public function monitor()
+  public function monitor()//fungsi controler untuk menampilkan halaman monitor
   {
     $data['webconf'] = $this->admin_model->getWebconf();
+    $data['datalog'] = $this->admin_model->dataLog();
     $data['view_name'] = 'monitor';
     $this->load->view('template', $data);
   }
@@ -70,7 +71,7 @@ class Admin extends CI_Controller
   }
   
   //=====Account Function=====//
-  public function account()
+  public function account()//fungsi controler untuk menampilkan halaman akun,dan melihat tab akun yang sudah ada
   {
     if ($this->input->post('checkGroup')) {
       redirect(base_url('createAccount/' . $this->input->post('group')));
@@ -82,7 +83,7 @@ class Admin extends CI_Controller
     }
   }
 
-  public function createAccount($id)
+  public function createAccount($id)//fungsi controler untuk menambah akun yang di kirimkan datanya ke account_model
   {
     $this->_formValidation();
     if ($this->form_validation->run() == false) {
@@ -98,7 +99,7 @@ class Admin extends CI_Controller
     }
   }
 
-  public function detailAccount($id)
+  public function detailAccount($id)//fungsi controler untuk menampilkan halaman detail akun berdasarkan id yang dipilih
   {
     if($this->input->post('deleteAccount')){$this->admin_model->deleteAccount();}
     $data['account'] = $this->admin_model->getDetailAccount($id);
@@ -109,7 +110,7 @@ class Admin extends CI_Controller
 
 
   //=====Account Tacac Function=====//
-  public function accountTacac()
+  public function accountTacac()//fungsi controler untuk menampilkan halaman akun tacac,dan melihat tab akun yang sudah ada
   {
     if ($this->input->post('checkGroupTacac')) {
       redirect(base_url('createAccountTacac/' . $this->input->post('group')));
@@ -121,7 +122,7 @@ class Admin extends CI_Controller
     }
   }
 
-  public function createAccountTacac($id)
+  public function createAccountTacac($id)//fungsi controler untuk menambah akun yang di kirimkan datanya ke account_tacac_model
   {
     $this->_formValidation();
     if ($this->form_validation->run() == false) {
@@ -142,7 +143,7 @@ class Admin extends CI_Controller
     }
   }
 
-  public function detailAccountTacac($id)
+  public function detailAccountTacac($id)//fungsi controler untuk menampilkan halaman detail akun tacac berdasarkan id yang dipilih
   {
     if($this->input->post('deleteAccountTacac')){$this->admin_model->deleteAccountTacac();}
     $data['accounttacac'] = $this->admin_model->getDetailAccountTacac($id);
@@ -151,13 +152,13 @@ class Admin extends CI_Controller
     $this->load->view('template', $data);
   }
 
-  public function exportXml()
+  public function exportXml()//fungsi controler untuk melakukan export xml ke folder yang di tentukan
   {
     $this->admin_model->exportXml();
     notify('xml Berhasil Di export', 'Success', 'accountTacac');
   }
 
-  public function webconf()
+  public function webconf()//fungsi controle untuk mengkonfigurasi website
   {
 
     if ($this->input->post('updateInfo')) {

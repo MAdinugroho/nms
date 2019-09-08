@@ -52,7 +52,8 @@ class General extends CI_Controller
       'required' => 'masukan password'
     ]);
     if ($this->form_validation->run() == false) {
-      $this->load->view('login');
+      $data['webconf'] = $this->general_model->getWebconf('webconf', 'id', 1);
+      $this->load->view('login', $data);
     } else {
       $this->loginValidation();
     }
