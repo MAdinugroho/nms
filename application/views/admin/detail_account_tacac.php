@@ -1,7 +1,7 @@
 <!-- Main Content -->
 <section class="section">
 	<div class="section-header">
-		<h1>Detail Akun Tacac</h1>
+		<h1>Detail Akun Tacacs</h1>
 	</div>
 
 	<div class="row">

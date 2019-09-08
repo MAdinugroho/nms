@@ -72,11 +72,8 @@
                 </form>
               </div>
             </div>
-            <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="auth-register.html">Create One</a>
-            </div>
             <div class="simple-footer">
-              Copyright &copy; Siamajar 2019
+              Copyright &copy; <?php echo $webconf->office_name; ?> 2019
             </div>
           </div>
         </div>

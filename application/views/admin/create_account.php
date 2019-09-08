@@ -5,22 +5,10 @@
 	</div>
 
 	<div class="row justify-content-md-center">
-		<div class="col-10">
-			<div class="hero bg-<?php echo $webconf->main_color; ?> text-white">
-				<div class="row">
-					<div class="col-6">
-						<div class="hero-inner">
-							<h2>Welcome Back, Ujang!</h2>
-							<p class="lead">Berisi Informasi Akun Admin dan operator yang terdaftar di SIMAJAR</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="col-md-10 ml-auto mr-auto">
 			<div class="card">
 				<div class="card-header">
-					<h4>Input Text</h4>
+					<h4>Input</h4>
 				</div>
 				<div class="card-body">
 					<form role="form" method="post" action="<?= base_url('createAccount/' . $group); ?>">

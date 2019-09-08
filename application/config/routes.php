@@ -18,7 +18,6 @@ $route['accountTacac'] = 'admin/accountTacac';
 $route['createAccountTacac/(:any)'] = 'admin/createAccountTacac/$1';
 $route['detailAccountTacac/(:any)'] = 'admin/detailAccountTacac/$1';
 $route['monitor'] = 'admin/monitor';
-$route['dataLog'] = 'admin/dataLog';
 $route['exportXml'] = 'admin/exportXml';
 
 //===USER AREA===//

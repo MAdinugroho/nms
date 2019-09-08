@@ -10,8 +10,8 @@
 				<div class="row">
 					<div class="col-6">
 						<div class="hero-inner">
-							<h2>Welcome Back, Ujang!</h2>
-							<p class="lead">Berisi Informasi Akun Admin dan operator yang terdaftar di SIMAJAR</p>
+							<h2>Welcome Back,<?php echo $this->session->userdata['name']; ?>!</h2>
+							<p class="lead">Berisi Informasi Akun Admin dan operator yang terdaftar di <?php echo $webconf->office_name; ?></p>
 						</div>
 					</div>
 					<div class="col-6">
@@ -20,7 +20,7 @@
 								<a href="#" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"
 									data-toggle="modal" data-target="#addAccountTacac"><i class="far fa-user"></i>
 									Tambah Akun</a>
-									<a href="<?php echo base_url('exportXml'); ?>" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"><i class="far fa-user"></i>Restart Tacac</a>
+									<a href="<?php echo base_url('exportXml'); ?>" class="btn btn-outline-white btn-lg btn-icon btn-right icon-left"><i class="far fa-user"></i>Restart Tacacs</a>
 							</div>
 						</div>
 					</div>
@@ -96,7 +96,7 @@
 			<div class="modal-content">
 				<form method="post">
 					<div class="modal-header">
-						<h4 class="modal-title">Tambah Kriteria</h4>
+						<h4 class="modal-title">Tambah User</h4>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">

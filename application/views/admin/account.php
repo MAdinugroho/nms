@@ -10,8 +10,8 @@
 				<div class="row">
 					<div class="col-6">
 						<div class="hero-inner">
-							<h2>Welcome Back, Ujang!</h2>
-							<p class="lead">Berisi Informasi Akun Admin dan operator yang terdaftar di SIMAJAR</p>
+							<h2>Welcome Back, <?php echo $this->session->userdata['name']; ?>!</h2>
+							<p class="lead">Berisi Informasi Akun Admin dan operator yang terdaftar di <?php echo $webconf->office_name; ?></p>
 						</div>
 					</div>
 					<div class="col-6">

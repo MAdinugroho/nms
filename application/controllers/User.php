@@ -29,7 +29,7 @@ class User extends CI_Controller
   public function monitor()
   {
     $data['webconf'] = $this->admin_model->getWebconf();
-    $data['view_name'] = 'monitor';
+    $data['view_name'] = 'user/monitor';
     $this->load->view('template', $data);
   }
 

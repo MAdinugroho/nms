@@ -58,17 +58,10 @@ class Admin extends CI_Controller
   {
     $data['webconf'] = $this->admin_model->getWebconf();
     $data['datalog'] = $this->admin_model->dataLog();
-    $data['view_name'] = 'monitor';
+    $data['view_name'] = 'admin/monitor';
     $this->load->view('template', $data);
   }
 
-  public function dataLog()
-  {
-    $data['webconf'] = $this->admin_model->getWebconf();
-    $data['datalog'] = $this->admin_model->dataLog();
-    $data['view_name'] = 'admin/datalog';
-    $this->load->view('template', $data);
-  }
   
   //=====Account Function=====//
   public function account()//fungsi controler untuk menampilkan halaman akun,dan melihat tab akun yang sudah ada

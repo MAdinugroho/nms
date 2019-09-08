@@ -12,7 +12,7 @@
 			<li class="<?php if($view_name=='user/dashboard'){echo 'active';}?>">
 				<a href="<?php echo base_url('dashboardUser'); ?>" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
 			</li>
-			<li class="<?php if($view_name=='user/monitoring'){echo 'active';}?>">
+			<li class="<?php if($view_name=='user/monitor'){echo 'active';}?>">
 				<a href="<?php echo base_url('monitorUser'); ?>" class="nav-link"><i class="fas fa-chart-bar"></i><span>Monitoring</span></a>
 			</li>
 

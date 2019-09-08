@@ -8,8 +8,8 @@
 		<div class="col-12">
 			<div class="hero bg-<?php echo $webconf->main_color; ?> text-white">
 				<div class="hero-inner">
-					<h2>Welcome Back, Ujang!</h2>
-					<p class="lead">This page is a place to manage posts, categories and more.</p>
+				<h2>Welcome Back, <?php echo $this->session->userdata['name']; ?>!</h2>
+				<p class="lead">Berisi Informasi data configurasi dashboard <?php echo $webconf->office_name; ?></p>
 				</div>
 			</div>
 		</div>

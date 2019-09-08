@@ -12,7 +12,7 @@
 			<li class="<?php if($view_name=='admin/dashboard'){echo 'active';}?>">
 				<a href="<?php echo base_url('dashboardAdmin'); ?>" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
 			</li>
-			<li class="<?php if($view_name=='monitor'){echo 'active';}?>">
+			<li class="<?php if($view_name=='admin/monitor'){echo 'active';}?>">
 				<a href="<?php echo base_url('monitor'); ?>" class="nav-link"><i class="fas fa-chart-bar"></i><span>Monitor</span></a>
 			</li>
 			<!-- <li class="<?php if($view_name=='admin/datalog'){echo 'active';}?>">
@@ -23,9 +23,9 @@
 				<a href="<?php echo base_url('account'); ?>" class="nav-link"><i class="fas fa-user"></i><span>Akun</span></a>
 			</li>
 			<li class="<?php if($view_name=='admin/account_tacac'){echo 'active';}?>">
-				<a href="<?php echo base_url('accountTacac'); ?>" class="nav-link"><i class="fas fa-users"></i><span>Akun Tacac</span></a>
+				<a href="<?php echo base_url('accountTacac'); ?>" class="nav-link"><i class="fas fa-users"></i><span>Akun Tacacs</span></a>
 			</li>
-			<li class="<?php if($view_name=='webconf'){echo 'active';}?>">
+			<li class="<?php if($view_name=='admin/webconf'){echo 'active';}?>">
 				<a href="<?php echo base_url('webconf'); ?>" class="nav-link"><i class="fas fa-cogs"></i><span>Konfigurasi Sistem</span></a>
 			</li>
 		</ul>
