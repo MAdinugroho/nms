@@ -104,7 +104,7 @@ class General extends CI_Controller
       $this->general_model->resetPassword();
     } else{
     $data['webconf'] = $this->general_model->getWebconf();
-    $this->load->view('forgotpassword');
+    $this->load->view('forgotpassword', $data);
   }
   }
 
