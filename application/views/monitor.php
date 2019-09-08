@@ -10,11 +10,11 @@
 					<ul class="nav nav-pills" id="myTab" role="tablist">
 						<li class="nav-item">
 							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#monitor1" role="tab"
-								aria-controls="home" aria-selected="true">Monitor 1</a>
+								aria-controls="home" aria-selected="true">Sistem</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#monitor2" role="tab"
-								aria-controls="profile" aria-selected="false">Monitor 2</a>
+								aria-controls="profile" aria-selected="false">Dashboard</a>
 						</li>
 					</ul>
 					<div class="tab-content" id="myTabContent">

@@ -15,9 +15,9 @@
 			<li class="<?php if($view_name=='monitor'){echo 'active';}?>">
 				<a href="<?php echo base_url('monitor'); ?>" class="nav-link"><i class="fas fa-chart-bar"></i><span>Monitor</span></a>
 			</li>
-			<li class="<?php if($view_name=='admin/datalog'){echo 'active';}?>">
+			<!-- <li class="<?php if($view_name=='admin/datalog'){echo 'active';}?>">
 				<a href="<?php echo base_url('dataLog'); ?>" class="nav-link"><i class="fas fa-table"></i><span>Log Sistem</span></a>
-			</li>
+			</li> -->
 			<li class="menu-header">Configurasi</li>
 			<li class="<?php if($view_name=='admin/account'){echo 'active';}?>">
 				<a href="<?php echo base_url('account'); ?>" class="nav-link"><i class="fas fa-user"></i><span>Akun</span></a>
