@@ -2,10 +2,10 @@
 	<aside id="sidebar-wrapper">
 		<div class="sidebar-brand">
 			<img src="<?= base_url('assets'); ?>/img/undip.png" width="35" class="img-rounded mx-auto" alt="...">
-			<a href="index.html"><?php echo $webconf->office_name; ?></a>
+			<a href="<?php echo base_url('dashboardAdmin'); ?>"><?php echo $webconf->office_name; ?></a>
 		</div>
 		<div class="sidebar-brand sidebar-brand-sm">
-			<a href="index.html">St</a>
+			<a href="<?php echo base_url('dashboardAdmin'); ?>">St</a>
 		</div>
 		<ul class="sidebar-menu">
 			<li class="menu-header">Dashboard</li>
