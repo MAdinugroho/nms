@@ -18,7 +18,7 @@ class Admin extends CI_Controller
   //=====Core Function====//
   public function _formValidation()//Fungsi Form Validasi untuk ngecek username,name,email,password yang diinput
   {
-    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
+    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account.username]', [
       'required' => 'Masukan Nama',
       'is_unique' => 'Username sudah ada'
     ]);
@@ -28,6 +28,30 @@ class Admin extends CI_Controller
     ]);
 
     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[account.email]', [
+      'valid_email' => 'Email tidak valid',
+      'required' => 'Masukan Email',
+      'is_unique' => 'Email sudah ada'
+    ]);
+    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|hasCapital|password_check', [
+      'min_length' => 'password min 8 karakter',
+      'password_check' => 'Harus terdapat angka',
+      'hasCapital' => 'Harus terdapat 1 huruf besar',
+      'required' => 'masukan password'
+    ]);
+	}
+	
+	public function _formValidationtacac()//Fungsi Form Validasi untuk ngecek username,name,email,password yang diinput
+  {
+    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
+      'required' => 'Masukan Nama',
+      'is_unique' => 'Username sudah ada'
+    ]);
+
+    $this->form_validation->set_rules('name', 'Name', 'required|trim', [
+      'required' => 'Masukan Nama'
+    ]);
+
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[account_tacac.email]', [
       'valid_email' => 'Email tidak valid',
       'required' => 'Masukan Email',
       'is_unique' => 'Email sudah ada'
@@ -117,7 +141,7 @@ class Admin extends CI_Controller
 
   public function createAccountTacac($id)//fungsi controler untuk menambah akun yang di kirimkan datanya ke account_tacac_model
   {
-    $this->_formValidation();
+    $this->_formValidationtacac();
     if ($this->form_validation->run() == false) {
       if ($id == 'admin_tacacs') {
         $data['gen'] = $this->admin_model->_getKodeOto('adname', 'account_tacac', 'admin_tacacs', 1);

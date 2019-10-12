@@ -51,6 +51,7 @@
 								<input type="password" name="password" class="form-control" placeholder="masukan password anda">
 								<input type="text" name="id" value="<?php echo $accounttacac->id; ?>" hidden>
 								<input type="text" name="username" value="<?php echo $accounttacac->username; ?>" hidden>
+								<input type="text" name="group" value="<?php echo $accounttacac->group; ?>" hidden>
 								<input type="text" name="status" value="<?php echo $accounttacac->status; ?>" hidden>
 							</div>
 							<div class="card-footer col-6">

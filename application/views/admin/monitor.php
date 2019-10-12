@@ -52,8 +52,8 @@
 														<div class="badge badge-<?php if($item->status == 'Login'){echo'primary';}
 									elseif($item->status == 'Logout'){echo'warning';}
 									elseif($item->status == 'Update Profile'||$item->status == 'Reset Password'){echo'info';}
-									elseif($item->status == 'Create admin'||$item->status == 'Create user'||$item->status == 'Create user'){echo'success';}
-									elseif($item->status == 'Delete admin'||$item->status == 'Delete admin_tacacs'){echo'danger';}?>">
+									elseif($item->status == 'Create admin'||$item->status == 'Create user'||$item->status == 'Create admin_tacacs'||$item->status == 'Create op_tacacs'){echo'success';}
+									elseif($item->status == 'Delete admin'||$item->status == 'Delete admin_tacacs'||$item->status == 'Delete user'||$item->status == 'Delete op_tacacs'){echo'danger';}?>">
 															<?php echo $item->status; ?></div>
 													</td>
 												</tr>
