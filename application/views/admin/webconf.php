@@ -70,9 +70,9 @@
 									<div class="form-group">
 										<label>Default Select</label>
 										<select class="form-control" name="main_color">
-											<option value="primary">Primary</option>
-											<option value="info">Info</option>
-											<option value="warning">Warning</option>
+											<option value="primary">Ungu</option>
+											<option value="info">Biru</option>
+											<option value="warning">Kuning</option>
 										</select>
 									</div>
 								</div>
