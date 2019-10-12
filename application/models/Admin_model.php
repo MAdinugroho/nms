@@ -184,7 +184,8 @@ class Admin_model extends CI_Model
       if ($this->input->post('status') == 0) {
         notify('Super Akun Tidak Dapat Dihapus', 'error', 'accountTacac');
       } else {
-				Shell_exec('powershell.exe Remove-ADUser -Identity "' . $this->input->post('username') . '" -Confirm:$false');
+				// Shell_exec('powershell.exe Remove-ADUser -Identity "' . $this->input->post('username') . '" -Confirm:$false');
+				$this->runDelete();
 				sleep(3);
         $this->db->delete('account_tacac', array('id' => $this->input->post('id')));
         $dataLog = 'Delete '.$this->input->post('group').'';
@@ -277,5 +278,10 @@ class Admin_model extends CI_Model
     if ($this->db->update('webconf', array('main_color' => $this->input->post('main_color')))) {
       notify('Konfigurasi Warna Berhasil Diubah ', 'success', 'webconf');
     }
-  }
+	}
+	
+	public function runDelete()
+	{
+		Shell_exec('powershell.exe Remove-ADUser -Identity "' . $this->input->post('username') . '" -Confirm:$false');
+	}
 }
