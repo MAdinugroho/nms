@@ -179,13 +179,15 @@ class Admin_model extends CI_Model
 
   public function deleteAccountTacac() //menghapus akun tacac
   {
-    $password = $this->input->post('password');
+		$password = $this->input->post('password');
+		$username = $this->input->post('username');
+		// var_dump($username);die;
     if (password_verify($password, $this->session->userdata['password'])) {
       if ($this->input->post('status') == 0) {
         notify('Super Akun Tidak Dapat Dihapus', 'error', 'accountTacac');
       } else {
-				// Shell_exec('powershell.exe Remove-ADUser -Identity "' . $this->input->post('username') . '" -Confirm:$false');
-				$this->runDelete();
+				echo Shell_exec('powershell.exe Remove-ADUser -Identity "' . $username . '" -Confirm:$false');
+				// $this->runDelete();
 				sleep(3);
         $this->db->delete('account_tacac', array('id' => $this->input->post('id')));
         $dataLog = 'Delete '.$this->input->post('group').'';
