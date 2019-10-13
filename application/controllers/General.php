@@ -14,7 +14,7 @@ class General extends CI_Controller
   //=====Core Function====//
   public function _formValidation()
   {
-    $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[account_tacac.username]', [
+    $this->form_validation->set_rules('username', 'Username', 'required|trim', [
       'required' => 'Masukan Nama',
       'is_unique' => 'Username sudah ada'
     ]);
