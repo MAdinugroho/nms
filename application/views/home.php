@@ -71,7 +71,7 @@
     </div>
     <section id="features">
             <div class="container">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6">
                 <img src="<?= base_url('assets'); ?>/img/undip.png" width="45" class="img-rounded float: left;" alt="...">
                     <h3 class="text-capitalize">BAPSI UNDIP</h3>
@@ -82,7 +82,7 @@
                         <p>Email: <?php echo $webconf->office_phone_number; ?></p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
