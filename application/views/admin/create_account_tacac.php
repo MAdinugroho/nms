@@ -39,7 +39,7 @@
 						<div class="row">
 							<div class="form-group col-6">
 								<label>Password</label>
-								<input type="text" class="form-control" placeholder="Masukan password" name="password">
+								<input type="password" class="form-control" placeholder="Masukan password" name="password">
 								<?= form_error('password', '<small class="text-danger" pl-3>', '</small>') ?>
 							</div>
 							<div class="form-group col-6">
